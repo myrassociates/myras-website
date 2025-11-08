@@ -5,45 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MYRAS Consulting | Empowering Businesses through Technology, Data, and Innovation</title>
 
-  <!-- Fonts & main stylesheet -->
+  <!-- Fonts & Versioned CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css?v=20251109" />
+  <script defer src="script.js?v=20251109"></script>
 
-  <!-- Minimal inline styles ONLY for dropdowns (safe to move to style.css later) -->
   <style>
-    .navbar { position: fixed; top: 0; width: 100%; }
+    /* Inline logo/dropdown CSS */
     .navbar .brand { display:flex; align-items:center; gap:10px; }
     .navbar .brand svg { width:28px; height:28px; }
-    /* Dropdown base */
-    .nav-links { position: relative; }
-    .nav-links li { position: relative; }
     .dropdown > a { display:flex; align-items:center; gap:6px; }
     .caret { font-size: 0.8rem; opacity: 0.8; }
     .dropdown-menu {
-      position: absolute; left: 0; top: 42px;
-      min-width: 240px; background: #fff; color:#0b3d91;
-      border-radius: 10px; box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-      padding: 12px; display: none; z-index: 1001;
+      position:absolute; left:0; top:42px;
+      min-width:240px; background:#fff; color:#0b3d91;
+      border-radius:10px; box-shadow:0 10px 24px rgba(0,0,0,0.12);
+      padding:10px; display:none; z-index:1001;
     }
     .dropdown-menu a {
-      display:block; text-align:left; padding:10px 12px; color:#0b3d91; text-decoration:none; border-radius:8px;
+      display:block; text-align:left; padding:10px 12px;
+      color:#0b3d91; text-decoration:none; border-radius:8px;
     }
     .dropdown-menu a:hover { background:#eef3fb; }
-    /* Show on hover (desktop) */
-    .dropdown:hover .dropdown-menu { display: block; }
-    /* Keep menus readable over hero */
-    .hero { margin-top: 70px; }
-    /* Mobile: stack menus when script toggles .open on nav */
-    @media (max-width: 768px){
-      .dropdown-menu { position: static; display: none; box-shadow:none; padding: 6px 0; background: transparent; }
-      .dropdown.open .dropdown-menu { display: block; }
-      .dropdown-menu a { padding:10px 0; }
+    .dropdown:hover .dropdown-menu { display:block; }
+    .hero { margin-top:70px; }
+    @media (max-width:768px){
+      .dropdown-menu { position:static; display:none; box-shadow:none; background:transparent; }
+      .dropdown.open .dropdown-menu { display:block; }
+      .dropdown-menu a { padding:8px 0; }
     }
   </style>
 </head>
+
 <body>
-  <!-- Navigation Bar with Logo + Dropdowns -->
+  <!-- Navigation Bar -->
   <header class="navbar">
     <div class="brand">
       <!-- Inline SVG logo mark -->
@@ -59,6 +54,7 @@
       </svg>
       <div class="logo">MYRAS</div>
     </div>
+
     <nav>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
@@ -100,7 +96,7 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section id="home" class="hero">
     <div class="hero-content">
       <h1>Empowering Businesses through Technology, Data, and Innovation</h1>
@@ -109,55 +105,44 @@
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About -->
   <section id="about" class="about">
     <h2>About Us</h2>
-    <p>
-      MYRAS Consulting is a team of experienced consultants with cross-industry depth in
-      <strong>Information Technology</strong>, <strong>Banking & Financial Services</strong>,
-      <strong>KPO & Shared Services</strong>, and <strong>Audit & Taxation</strong>.
-      We combine strategy, architecture, and delivery to modernize platforms, elevate data capabilities, and simplify operations.
-    </p>
+    <p>MYRAS Consulting is a team of experienced consultants with cross-industry depth in <strong>Information Technology</strong>, <strong>Banking & Financial Services</strong>, <strong>KPO & Shared Services</strong>, and <strong>Audit & Taxation</strong>. We combine strategy, architecture, and delivery to modernize platforms, elevate data capabilities, and simplify operations.</p>
 
     <div id="about-expertise" style="margin-top:18px;">
-      <p><strong>Our Expertise:</strong> enterprise data engineering, Teradata, cloud migrations (AWS, Azure, GCP), BI & analytics, production support, and automation using shell/Python/DevOps practices.</p>
+      <p><strong>Our Expertise:</strong> Enterprise data engineering, Teradata, cloud migrations (AWS, Azure, GCP), BI & analytics, production support, and automation using shell/Python/DevOps practices.</p>
     </div>
 
     <div id="about-values" style="margin-top:10px;">
-      <p><strong>Our Values:</strong> pragmatic solutions, transparent communication, outcome focus, and partnership-first engagement models that align with your goals and budgets.</p>
+      <p><strong>Our Values:</strong> Pragmatic solutions, transparent communication, outcome focus, and partnership-first engagement models that align with your goals and budgets.</p>
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services -->
   <section id="services" class="services">
     <h2>Our Services</h2>
-
     <div class="service-container">
       <div id="service-it" class="service-card">
         <h3>IT Consulting & Staffing</h3>
         <p>Contract, full-time, and project-based experts across Data, Cloud, and Analytics. Rapid ramp-ups with governance and quality controls.</p>
       </div>
-
       <div id="service-cloud" class="service-card">
         <h3>Cloud & Data Solutions</h3>
         <p>Cloud migrations and modernization on Azure, AWS, and GCP. Data architecture, cost optimization, and secure, scalable foundations.</p>
       </div>
-
       <div id="service-enterprise" class="service-card">
         <h3>Enterprise Support & Automation</h3>
         <p>Production support, transition management, observability, and automation with Shell/Python to minimize toil and downtime.</p>
       </div>
-
       <div id="service-bi" class="service-card">
         <h3>Business Intelligence & Analytics</h3>
         <p>Power BI/Tableau dashboards, ELT/ETL pipelines, advanced SQL, and analytics that transform data into action.</p>
       </div>
-
       <div id="service-teradata" class="service-card">
         <h3>Teradata & Data Warehousing</h3>
         <p>Design, development, performance tuning, and migration for Teradata and enterprise data warehouse workloads.</p>
       </div>
-
       <div id="service-devops" class="service-card">
         <h3>DevOps & Automation</h3>
         <p>CI/CD, infrastructure as code, secure pipelines, and release automation for speed with reliability.</p>
@@ -165,30 +150,15 @@
     </div>
   </section>
 
-  <!-- Industries Section -->
+  <!-- Industries -->
   <section id="industries" class="services">
     <h2>Industries</h2>
     <div class="service-container">
-      <div id="ind-bfs" class="service-card">
-        <h3>Banking & Financial Services</h3>
-        <p>Risk, compliance, customer analytics, and core modernization with resilient, secure data platforms.</p>
-      </div>
-      <div id="ind-kpo" class="service-card">
-        <h3>KPO & Shared Services</h3>
-        <p>Process automation, reporting factories, and data quality frameworks that scale with global operations.</p>
-      </div>
-      <div id="ind-audit" class="service-card">
-        <h3>Audit & Taxation</h3>
-        <p>Workflow digitization, audit trail analytics, and regulatory-grade data controls to improve accuracy and speed.</p>
-      </div>
-      <div id="ind-health" class="service-card">
-        <h3>Healthcare & Life Sciences</h3>
-        <p>Data integration, interoperability, and analytics to support clinical insights and patient outcomes.</p>
-      </div>
-      <div id="ind-retail" class="service-card">
-        <h3>Retail & eCommerce</h3>
-        <p>Customer 360, demand forecasting, and campaign performance analytics that drive growth.</p>
-      </div>
+      <div id="ind-bfs" class="service-card"><h3>Banking & Financial Services</h3><p>Risk, compliance, customer analytics, and core modernization with resilient, secure data platforms.</p></div>
+      <div id="ind-kpo" class="service-card"><h3>KPO & Shared Services</h3><p>Process automation, reporting factories, and data quality frameworks that scale with global operations.</p></div>
+      <div id="ind-audit" class="service-card"><h3>Audit & Taxation</h3><p>Workflow digitization, audit trail analytics, and regulatory-grade data controls to improve accuracy and speed.</p></div>
+      <div id="ind-health" class="service-card"><h3>Healthcare & Life Sciences</h3><p>Data integration, interoperability, and analytics to support clinical insights and patient outcomes.</p></div>
+      <div id="ind-retail" class="service-card"><h3>Retail & eCommerce</h3><p>Customer 360, demand forecasting, and campaign performance analytics that drive growth.</p></div>
     </div>
   </section>
 
@@ -196,31 +166,18 @@
   <section id="why" class="why">
     <h2>Why Choose MYRAS?</h2>
     <div class="why-container">
-      <div class="why-item">
-        <h4>Cross-Domain Expertise</h4>
-        <p>Hands-on experience across IT, BFSI, KPO, and audit/taxation operations.</p>
-      </div>
-      <div class="why-item">
-        <h4>Outcome-Focused</h4>
-        <p>Roadmaps that translate into measurable value: faster releases, lower cost, better insight.</p>
-      </div>
-      <div class="why-item">
-        <h4>Trusted Delivery</h4>
-        <p>Governed execution, strong documentation, and knowledge transfer for continuity.</p>
-      </div>
-      <div class="why-item">
-        <h4>Flexible Models</h4>
-        <p>Advisory, augmentation, or end-to-end delivery — tailored to your goals and budgets.</p>
-      </div>
+      <div class="why-item"><h4>Cross-Domain Expertise</h4><p>Hands-on experience across IT, BFSI, KPO, and audit/taxation operations.</p></div>
+      <div class="why-item"><h4>Outcome-Focused</h4><p>Roadmaps that translate into measurable value: faster releases, lower cost, better insight.</p></div>
+      <div class="why-item"><h4>Trusted Delivery</h4><p>Governed execution, strong documentation, and knowledge transfer for continuity.</p></div>
+      <div class="why-item"><h4>Flexible Models</h4><p>Advisory, augmentation, or end-to-end delivery — tailored to your goals and budgets.</p></div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact" class="contact">
     <h2>Get in Touch</h2>
     <p>We’d love to hear from you. Reach out for business inquiries or collaborations.</p>
 
-    <!-- Visual form (static) -->
     <form class="contact-form" onsubmit="return false;">
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
@@ -228,7 +185,6 @@
       <button type="submit">Send Message</button>
     </form>
 
-    <!-- Direct email link -->
     <div class="contact-email">
       <p>📧 You can also reach us directly at:
         <a href="mailto:myrassociate@gmail.com?subject=Inquiry%20from%20MYRAS%20Website&body=Hi%20MYRAS%20Team%2C%0D%0A%0D%0AMy%20name%20is%20...%0D%0ACompany%3A%20...%0D%0AInquiry%3A%20...%0D%0A%0D%0AThanks%2C%0D%0A">myrassociate@gmail.com</a>
@@ -238,19 +194,14 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 MYRAS Consulting. All rights reserved.</p>
+    <p>© 2025 MYRAS Consulting — build v2</p>
   </footer>
 
-  <!-- Small helper script to open dropdowns on mobile when the nav is toggled -->
+  <!-- Dropdown tap handling -->
   <script>
-    // If your existing script.js adds/removes .open on the nav for mobile,
-    // this lets tapping the parent link reveal its submenu.
-    document.querySelectorAll('.dropdown > a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          link.parentElement.classList.toggle('open');
-        }
+    document.querySelectorAll('.dropdown > a').forEach(link=>{
+      link.addEventListener('click',e=>{
+        if(window.innerWidth<=768){e.preventDefault();link.parentElement.classList.toggle('open');}
       });
     });
   </script>
