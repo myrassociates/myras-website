@@ -1,71 +1,143 @@
-// ========== Helpers ==========
-function qs(sel, ctx = document) { return ctx.querySelector(sel); }
-function qsa(sel, ctx = document) { return Array.from(ctx.querySelectorAll(sel)); }
+/* ========== tiny helpers ========== */
+const qs  = (s, c=document) => c.querySelector(s);
+const qsa = (s, c=document) => Array.from(c.querySelectorAll(s));
 
-// ========== 1) Mobile Menu Toggle (hamburger injected automatically) ==========
-(function setupMobileMenu() {
-  const navbar = qs('.navbar');
+/* ========== 1) Robust dropdowns (desktop hover + click; mobile tap) ========== */
+(function setupDropdowns(){
+  const dropdowns = qsa('.dropdown');
+  const NAV_CLOSE_DELAY = 220; // ms
+  const isMobile = () => window.innerWidth <= 768;
+
+  dropdowns.forEach(dd => {
+    const trigger = qs(':scope > a', dd);
+    const menu    = qs(':scope .dropdown-menu', dd);
+    if(!trigger || !menu) return;
+
+    let hideTimer;
+
+    const openMenu  = () => { clearTimeout(hideTimer); menu.style.display = 'block'; dd.classList.add('open'); };
+    const closeMenu = () => { hideTimer = setTimeout(()=>{ menu.style.display = 'none'; dd.classList.remove('open'); }, NAV_CLOSE_DELAY); };
+
+    // --- Desktop hover keeps it open, slight delay before closing
+    dd.addEventListener('mouseenter', () => { if(!isMobile()) openMenu(); });
+    dd.addEventListener('mouseleave', () => { if(!isMobile()) closeMenu(); });
+
+    // --- Click to toggle (both desktop and mobile)
+    trigger.addEventListener('click', (e) => {
+      // If this dropdown contains a submenu, first toggle; second click can follow the hash if wanted
+      if (menu) {
+        // prevent jump on first click; users can click submenu items to navigate
+        e.preventDefault();
+        const isShown = menu.style.display === 'block';
+        if (isShown) { closeMenu(); }
+        else { openMenu(); }
+      }
+    });
+
+    // Keep open while pointer moves inside the menu
+    menu.addEventListener('mouseenter', () => { clearTimeout(hideTimer); });
+    menu.addEventListener('mouseleave', closeMenu);
+  });
+
+  // Close any open menu when clicking elsewhere
+  document.addEventListener('click', (e) => {
+    const anyOpen = qsa('.dropdown .dropdown-menu').filter(m => m.style.display === 'block');
+    if (!e.target.closest('.dropdown')) {
+      anyOpen.forEach(m => { m.style.display = 'none'; m.parentElement.classList.remove('open'); });
+    }
+  });
+})();
+
+/* ========== 2) Mobile menu toggle (hamburger injected if not present) ========== */
+(function setupMobileMenu(){
+  const navbar   = qs('.navbar');
   const navLinks = qs('.nav-links');
+  if(!navbar || !navLinks) return;
 
-  if (!navbar || !navLinks) return;
-
-  // Create a hamburger button if it doesn't exist
   let toggleBtn = qs('.menu-toggle', navbar);
   if (!toggleBtn) {
     toggleBtn = document.createElement('button');
     toggleBtn.className = 'menu-toggle';
-    toggleBtn.setAttribute('aria-label', 'Open menu');
+    toggleBtn.setAttribute('aria-label','Open menu');
     toggleBtn.textContent = '☰';
-    // Minimal inline styling so we don't need to touch CSS again
     Object.assign(toggleBtn.style, {
-      background: 'transparent',
-      border: '0',
-      color: '#fff',
-      fontSize: '22px',
-      cursor: 'pointer',
-      display: 'none',
-      marginLeft: '12px'
+      background:'transparent', border:'0', color:'#fff', fontSize:'22px',
+      cursor:'pointer', display:'none', marginLeft:'12px'
     });
-    // place it at the right end of navbar
     navbar.appendChild(toggleBtn);
   }
 
-  // Show button on small screens; hide on desktop
-  function refreshToggleVisibility() {
+  function refresh() {
     if (window.innerWidth <= 768) {
       toggleBtn.style.display = 'block';
-      navLinks.classList.remove('open'); // start closed on mobile
+      // start closed on mobile
+      navLinks.classList.remove('open');
+      // also collapse any open dropdown menus
+      qsa('.dropdown .dropdown-menu').forEach(m => m.style.display='none');
+      qsa('.dropdown').forEach(d => d.classList.remove('open'));
     } else {
       toggleBtn.style.display = 'none';
-      navLinks.classList.remove('open'); // always open layout on desktop
+      navLinks.classList.remove('open');
+      // desktop default: menus hidden until hover/click
+      qsa('.dropdown .dropdown-menu').forEach(m => m.style.display='none');
+      qsa('.dropdown').forEach(d => d.classList.remove('open'));
     }
   }
-  refreshToggleVisibility();
-  window.addEventListener('resize', refreshToggleVisibility);
+  refresh();
+  window.addEventListener('resize', refresh);
 
-  // Toggle the nav list
   toggleBtn.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open');
     toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 })();
 
-// ========== 2) Smooth Scrolling for anchor links ==========
+/* ========== 3) Smooth scrolling with fixed-navbar offset ========== */
+function scrollToWithOffset(targetEl) {
+  const nav = qs('.navbar');
+  const offset = nav ? nav.offsetHeight + 8 : 0;
+  const y = targetEl.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top: y, behavior: 'smooth' });
+}
+
+// main nav & hero CTA
 qsa('.nav-links a, .cta-button').forEach(a => {
-  a.addEventListener('click', function (e) {
-    const href = this.getAttribute('href') || '';
+  a.addEventListener('click', (e) => {
+    const href = a.getAttribute('href') || '';
     if (href.startsWith('#')) {
       e.preventDefault();
-      const target = qs(href);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // close mobile nav after navigating
+      const el = qs(href);
+      if (el) scrollToWithOffset(el);
+
+      // close mobile menu after navigating
+      const navLinks = qs('.nav-links');
+      if (navLinks && window.innerWidth <= 768) navLinks.classList.remove('open');
+
+      // hide any open dropdown menus after click
+      qsa('.dropdown .dropdown-menu').forEach(m => m.style.display='none');
+      qsa('.dropdown').forEach(d => d.classList.remove('open'));
+    }
+  });
+});
+
+// submenu items (inside dropdowns)
+qsa('.dropdown-menu a').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const el = qs(href);
+      if (el) scrollToWithOffset(el);
+      // close menus
+      qsa('.dropdown .dropdown-menu').forEach(m => m.style.display='none');
+      qsa('.dropdown').forEach(d => d.classList.remove('open'));
       const navLinks = qs('.nav-links');
       if (navLinks && window.innerWidth <= 768) navLinks.classList.remove('open');
     }
   });
 });
 
-// ========== 3) Navbar style tweak on scroll ==========
+/* ========== 4) Navbar style tweak on scroll ========== */
 window.addEventListener('scroll', () => {
   const navbar = qs('.navbar');
   if (!navbar) return;
@@ -78,7 +150,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ========== 4) Contact form friendly animation (static site) ==========
+/* ========== 5) Contact form friendly animation (static site) ========== */
 const contactForm = qs('.contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', () => {
@@ -94,24 +166,22 @@ if (contactForm) {
   });
 }
 
-// ========== 5) Fade-in on scroll (cards/sections) ==========
-(function revealOnScroll() {
-  const fadeTargets = qsa('.service-card, .why-item, .about p');
-  fadeTargets.forEach(el => {
+/* ========== 6) Fade-in on scroll for cards/sections ========== */
+(function revealOnScroll(){
+  const targets = qsa('.service-card, .why-item, .about p');
+  targets.forEach(el => {
     el.style.opacity = 0;
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'all 800ms ease';
   });
-
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = 'translateY(0)';
-        io.unobserve(entry.target);
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(ent => {
+      if (ent.isIntersecting) {
+        ent.target.style.opacity = 1;
+        ent.target.style.transform = 'translateY(0)';
+        io.unobserve(ent.target);
       }
     });
   }, { threshold: 0.12 });
-
-  fadeTargets.forEach(el => io.observe(el));
+  targets.forEach(el => io.observe(el));
 })();
