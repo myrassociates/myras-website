@@ -5,48 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MYRAS Consulting | Empowering Businesses through Technology, Data, and Innovation</title>
 
-  <!-- Fonts & Versioned CSS -->
+  <!-- Favicon + Fonts + Versioned CSS/JS -->
+  <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css?v=20251109" />
   <script defer src="script.js?v=20251109"></script>
-
-  <style>
-    /* Inline logo/dropdown CSS */
-    .navbar .brand { display:flex; align-items:center; gap:10px; }
-    .navbar .brand svg { width:28px; height:28px; }
-    .dropdown > a { display:flex; align-items:center; gap:6px; }
-    .caret { font-size: 0.8rem; opacity: 0.8; }
-    .dropdown-menu {
-      position:absolute; left:0; top:42px;
-      min-width:240px; background:#fff; color:#0b3d91;
-      border-radius:10px; box-shadow:0 10px 24px rgba(0,0,0,0.12);
-      padding:10px; display:none; z-index:1001;
-    }
-    .dropdown-menu a {
-      display:block; text-align:left; padding:10px 12px;
-      color:#0b3d91; text-decoration:none; border-radius:8px;
-    }
-    .dropdown-menu a:hover { background:#eef3fb; }
-    .dropdown:hover .dropdown-menu { display:block; }
-    .hero { margin-top:70px; }
-    @media (max-width:768px){
-      .dropdown-menu { position:static; display:none; box-shadow:none; background:transparent; }
-      .dropdown.open .dropdown-menu { display:block; }
-      .dropdown-menu a { padding:8px 0; }
-    }
-  </style>
 </head>
 
 <body>
-  <!-- Navigation Bar -->
+  <!-- Navbar (multi-page) -->
   <header class="navbar">
-    <div class="brand">
-      <!-- Inline SVG logo mark -->
-      <svg viewBox="0 0 48 48" aria-hidden="true">
+    <div class="brand" onclick="location.href='index.html'" style="cursor:pointer">
+      <!-- Inline SVG logo -->
+      <svg viewBox="0 0 48 48" aria-hidden="true" width="28" height="28">
         <defs>
           <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#2a6adf"/>
-            <stop offset="1" stop-color="#0b3d91"/>
+            <stop offset="0" stop-color="#2a6adf"/><stop offset="1" stop-color="#0b3d91"/>
           </linearGradient>
         </defs>
         <path d="M24 5c1.7 0 3.3.9 4.2 2.4l13.6 23.3c1.9 3.2-.4 7.3-4.2 7.3H10.4c-3.8 0-6.1-4.1-4.2-7.3L19.8 7.4C20.7 5.9 22.3 5 24 5z" fill="url(#g)"/>
@@ -57,219 +31,153 @@
 
     <nav>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
+        <li><a href="index.html#home">Home</a></li>
 
         <li class="dropdown">
-          <a href="#about">About <span class="caret">▾</span></a>
+          <a href="about.html">About <span class="caret">▾</span></a>
           <div class="dropdown-menu">
-            <a href="#about">Who We Are</a>
-            <a href="#about-expertise">Our Expertise</a>
-            <a href="#about-values">Our Values</a>
+            <a href="about.html#who">Who We Are</a>
+            <a href="about.html#expertise">Our Expertise</a>
+            <a href="about.html#values">Our Values</a>
           </div>
         </li>
 
         <li class="dropdown">
-          <a href="#services">Services <span class="caret">▾</span></a>
+          <a href="services.html">Services <span class="caret">▾</span></a>
           <div class="dropdown-menu">
-            <a href="#service-it">IT Consulting & Staffing</a>
-            <a href="#service-cloud">Cloud & Data Solutions</a>
-            <a href="#service-enterprise">Enterprise Support & Automation</a>
-            <a href="#service-bi">BI & Advanced Analytics</a>
-            <a href="#service-teradata">Teradata & Data Warehousing</a>
-            <a href="#service-devops">DevOps & Automation</a>
+            <a href="services.html#consulting">IT Consulting & Staffing</a>
+            <a href="services.html#cloud">Cloud & Data Solutions</a>
+            <a href="services.html#enterprise">Enterprise Support & Automation</a>
+            <a href="services.html#bi">BI & Advanced Analytics</a>
+            <a href="services.html#teradata">Teradata & DW</a>
+            <a href="services.html#devops">DevOps & Automation</a>
+            <hr style="border:0;border-top:1px solid #e1e5f2;margin:6px 0;">
+            <a href="solutions.html">Reference Solutions →</a>
           </div>
         </li>
 
         <li class="dropdown">
-          <a href="#industries">Industries <span class="caret">▾</span></a>
+          <a href="industries.html">Industries <span class="caret">▾</span></a>
           <div class="dropdown-menu">
-            <a href="#ind-bfs">Banking & Financial Services</a>
-            <a href="#ind-kpo">KPO & Shared Services</a>
-            <a href="#ind-audit">Audit & Taxation</a>
-            <a href="#ind-health">Healthcare & Life Sciences</a>
-            <a href="#ind-retail">Retail & eCommerce</a>
+            <a href="industries.html#bfs">Banking & Financial Services</a>
+            <a href="industries.html#kpo">KPO & Shared Services</a>
+            <a href="industries.html#audit">Audit & Taxation</a>
+            <a href="industries.html#health">Healthcare & Life Sciences</a>
+            <a href="industries.html#retail">Retail & eCommerce</a>
           </div>
         </li>
 
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section id="home" class="hero">
     <div class="hero-content">
       <h1>Empowering Businesses through Technology, Data, and Innovation</h1>
       <p>We help enterprises transform ideas into impactful digital solutions through modern IT consulting, data engineering, and cloud excellence.</p>
-      <a href="#contact" class="cta-button">Get in Touch</a>
+      <a href="contact.html" class="cta-button">Get in Touch</a>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="about">
-<!-- Promo Banner -->
-<section class="promo-band">
-  <h2>Consulting Excellence. Delivered.</h2>
-  <p>Empowering enterprises with robust architectures, proven delivery frameworks, and deep domain expertise across industries.</p>
-  <div class="pills">
-    <span class="pill">TOGAF Enterprise Architecture</span>
-    <span class="pill">Agile & Scrum Delivery</span>
-    <span class="pill">PMBOK Project Governance</span>
-    <span class="pill">Cloud Strategy</span>
-  </div>
-</section>
+  <!-- ABOUT (brief teaser on home) -->
+  <section class="about">
+    <h2>About MYRAS</h2>
+    <p>Experienced consultants across IT, Banking, KPO, Auditing, and Taxation. We deliver strategy, architecture, data platforms and operational excellence — aligned to TOGAF, PMBOK and Agile practices.</p>
+    <p><a href="about.html" class="cta-button">Learn More</a></p>
+  </section>
 
-<!-- Consulting Flyers (Auto-Sliding Carousel) -->
-<section class="services" id="flyers">
-  <h2>Our Consulting Focus Areas</h2>
-  <p>We bring transformation through a mix of technology, data, and process excellence — turning ideas into scalable, high-impact solutions.</p>
-
-  <!-- Carousel Controls -->
-  <div class="carousel-controls">
-    <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
-    <button class="carousel-btn next" aria-label="Next slide">›</button>
-  </div>
-
-  <!-- Carousel Track -->
-  <div class="carousel-track" data-autoplay="true" data-interval="4200">
-    <article class="flyer slide">
-      <h3>Digital Transformation</h3>
-      <p>Modernize legacy systems and build cloud-native apps with secure, scalable, resilient architectures.</p>
-      <p><strong>Domains:</strong> Microservices · APIs · Containers · Cloud Migration</p>
-    </article>
-
-    <article class="flyer slide">
-      <h3>Data & AI Consulting</h3>
-      <p>Design end-to-end data ecosystems — from lakes to AI analytics — enabling predictive insights.</p>
-      <p><strong>Tools:</strong> Azure Synapse · AWS Glue · BigQuery · Power BI</p>
-    </article>
-
-    <article class="flyer slide">
-      <h3>IT Service Management (ITSM)</h3>
-      <p>Align IT ops to business outcomes using ITIL & SRE for reliability and continuous improvement.</p>
-      <p><strong>Focus:</strong> Incident · Problem · Change · CMDB · SLAs</p>
-    </article>
-
-    <article class="flyer slide">
-      <h3>Agile Delivery & Governance</h3>
-      <p>Certified Agile PMs ensure sprint velocity, stakeholder alignment, and measurable value.</p>
-      <p><strong>Frameworks:</strong> Scrum · Kanban · SAFe · PMBOK</p>
-    </article>
-  </div>
-
-  <!-- Slide Dots -->
-  <div class="carousel-dots" aria-label="Slide indicators"></div>
-</section>
-
-    <h2>About Us</h2>
-    <p>MYRAS Consulting is a team of experienced consultants with cross-industry depth in <strong>Information Technology</strong>, <strong>Banking & Financial Services</strong>, <strong>KPO & Shared Services</strong>, and <strong>Audit & Taxation</strong>. We combine strategy, architecture, and delivery to modernize platforms, elevate data capabilities, and simplify operations.</p>
-
-    <div id="about-expertise" style="margin-top:18px;">
-      <p><strong>Our Expertise:</strong> Enterprise data engineering, Teradata, cloud migrations (AWS, Azure, GCP), BI & analytics, production support, and automation using shell/Python/DevOps practices.</p>
-    </div>
-
-    <div id="about-values" style="margin-top:10px;">
-      <p><strong>Our Values:</strong> Pragmatic solutions, transparent communication, outcome focus, and partnership-first engagement models that align with your goals and budgets.</p>
+  <!-- PROMO BANNER -->
+  <section class="promo-band">
+    <h2>Consulting Excellence. Delivered.</h2>
+    <p>Empowering enterprises with robust architectures, proven delivery frameworks, and deep domain expertise across industries.</p>
+    <div class="pills">
+      <span class="pill">TOGAF Enterprise Architecture</span>
+      <span class="pill">Agile & Scrum Delivery</span>
+      <span class="pill">PMBOK Project Governance</span>
+      <span class="pill">Cloud Strategy</span>
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="services">
-    <h2>Our Services</h2>
+  <!-- FLYERS CAROUSEL -->
+  <section class="services" id="flyers">
+    <h2>Our Consulting Focus Areas</h2>
+    <p>We bring transformation through a mix of technology, data, and process excellence — turning ideas into scalable, high-impact solutions.</p>
+
+    <!-- Controls -->
+    <div class="carousel-controls">
+      <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
+      <button class="carousel-btn next" aria-label="Next slide">›</button>
+    </div>
+
+    <!-- Track -->
+    <div class="carousel-track" data-autoplay="true" data-interval="4200">
+      <article class="flyer slide">
+        <h3>Digital Transformation</h3>
+        <p>Modernize legacy systems and build cloud-native apps with secure, scalable, resilient architectures.</p>
+        <p><strong>Domains:</strong> Microservices · APIs · Containers · Cloud Migration</p>
+      </article>
+
+      <article class="flyer slide">
+        <h3>Data & AI Consulting</h3>
+        <p>Design end-to-end data ecosystems — from lakes to AI analytics — enabling predictive insights.</p>
+        <p><strong>Tools:</strong> Azure Synapse · AWS Glue · BigQuery · Power BI</p>
+      </article>
+
+      <article class="flyer slide">
+        <h3>IT Service Management (ITSM)</h3>
+        <p>Align IT ops to business outcomes using ITIL & SRE for reliability and continuous improvement.</p>
+        <p><strong>Focus:</strong> Incident · Problem · Change · CMDB · SLAs</p>
+      </article>
+
+      <article class="flyer slide">
+        <h3>Agile Delivery & Governance</h3>
+        <p>Certified Agile PMs ensure sprint velocity, stakeholder alignment, and measurable value.</p>
+        <p><strong>Frameworks:</strong> Scrum · Kanban · SAFe · PMBOK</p>
+      </article>
+    </div>
+
+    <!-- Dots -->
+    <div class="carousel-dots" aria-label="Slide indicators"></div>
+  </section>
+
+  <!-- QUICK PATHS -->
+  <section class="services">
+    <h2>Explore</h2>
     <div class="service-container">
-      <div id="service-it" class="service-card">
-        <h3>IT Consulting & Staffing</h3>
-        <p>Contract, full-time, and project-based experts across Data, Cloud, and Analytics. Rapid ramp-ups with governance and quality controls.</p>
+      <div class="service-card">
+        <h3>Services</h3>
+        <p>IT Consulting & Staffing, Cloud & Data, Support & Automation, BI & Analytics, Teradata, DevOps.</p>
+        <p><a href="services.html" class="cta-button">View Services</a></p>
       </div>
-      <div id="service-cloud" class="service-card">
-        <h3>Cloud & Data Solutions</h3>
-        <p>Cloud migrations and modernization on Azure, AWS, and GCP. Data architecture, cost optimization, and secure, scalable foundations.</p>
+      <div class="service-card">
+        <h3>Reference Solutions</h3>
+        <p>ETL (batch & streaming), on-prem → cloud patterns (AWS/Azure/GCP), reporting & BI flows.</p>
+        <p><a href="solutions.html" class="cta-button">See Solutions</a></p>
       </div>
-      <div id="service-enterprise" class="service-card">
-        <h3>Enterprise Support & Automation</h3>
-        <p>Production support, transition management, observability, and automation with Shell/Python to minimize toil and downtime.</p>
-      </div>
-      <div id="service-bi" class="service-card">
-        <h3>Business Intelligence & Analytics</h3>
-        <p>Power BI/Tableau dashboards, ELT/ETL pipelines, advanced SQL, and analytics that transform data into action.</p>
-      </div>
-      <div id="service-teradata" class="service-card">
-        <h3>Teradata & Data Warehousing</h3>
-        <p>Design, development, performance tuning, and migration for Teradata and enterprise data warehouse workloads.</p>
-      </div>
-      <div id="service-devops" class="service-card">
-        <h3>DevOps & Automation</h3>
-        <p>CI/CD, infrastructure as code, secure pipelines, and release automation for speed with reliability.</p>
+      <div class="service-card">
+        <h3>Industries</h3>
+        <p>BFSI, KPO/Shared Services, Audit & Taxation, Healthcare, Retail & eCommerce.</p>
+        <p><a href="industries.html" class="cta-button">See Industries</a></p>
       </div>
     </div>
   </section>
 
-  <!-- Industries -->
-  <section id="industries" class="services">
-    <h2>Industries</h2>
-    <div class="service-container">
-      <div id="ind-bfs" class="service-card"><h3>Banking & Financial Services</h3><p>Risk, compliance, customer analytics, and core modernization with resilient, secure data platforms.</p></div>
-      <div id="ind-kpo" class="service-card"><h3>KPO & Shared Services</h3><p>Process automation, reporting factories, and data quality frameworks that scale with global operations.</p></div>
-      <div id="ind-audit" class="service-card"><h3>Audit & Taxation</h3><p>Workflow digitization, audit trail analytics, and regulatory-grade data controls to improve accuracy and speed.</p></div>
-      <div id="ind-health" class="service-card"><h3>Healthcare & Life Sciences</h3><p>Data integration, interoperability, and analytics to support clinical insights and patient outcomes.</p></div>
-      <div id="ind-retail" class="service-card"><h3>Retail & eCommerce</h3><p>Customer 360, demand forecasting, and campaign performance analytics that drive growth.</p></div>
+  <!-- VISION BAND -->
+  <section class="promo-band" style="margin-bottom:0;">
+    <h2>Our Vision</h2>
+    <p>To enable businesses to thrive in a data-driven world — where technology, creativity, and strategy converge to deliver measurable growth.</p>
+    <div class="pills">
+      <span class="pill">Innovation</span>
+      <span class="pill">Integrity</span>
+      <span class="pill">Impact</span>
     </div>
   </section>
 
-  <!-- Why Choose MYRAS -->
-  <section id="why" class="why">
-    <h2>Why Choose MYRAS?</h2>
-    <div class="why-container">
-      <div class="why-item"><h4>Cross-Domain Expertise</h4><p>Hands-on experience across IT, BFSI, KPO, and audit/taxation operations.</p></div>
-      <div class="why-item"><h4>Outcome-Focused</h4><p>Roadmaps that translate into measurable value: faster releases, lower cost, better insight.</p></div>
-      <div class="why-item"><h4>Trusted Delivery</h4><p>Governed execution, strong documentation, and knowledge transfer for continuity.</p></div>
-      <div class="why-item"><h4>Flexible Models</h4><p>Advisory, augmentation, or end-to-end delivery — tailored to your goals and budgets.</p></div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Get in Touch</h2>
-    <p>We’d love to hear from you. Reach out for business inquiries or collaborations.</p>
-
-    <form class="contact-form" onsubmit="return false;">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="4" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-
-    <div class="contact-email">
-      <p>📧 You can also reach us directly at:
-        <a href="mailto:myrassociate@gmail.com?subject=Inquiry%20from%20MYRAS%20Website&body=Hi%20MYRAS%20Team%2C%0D%0A%0D%0AMy%20name%20is%20...%0D%0ACompany%3A%20...%0D%0AInquiry%3A%20...%0D%0A%0D%0AThanks%2C%0D%0A">myrassociate@gmail.com</a>
-      </p>
-    </div>
-  </section>
-
-<!-- Vision Statement -->
-<section class="promo-band" style="margin-bottom: 0;">
-  <h2>Our Vision</h2>
-  <p>To enable businesses to thrive in a data-driven world — where technology, creativity, and strategy converge to deliver measurable growth.</p>
-  <div class="pills">
-    <span class="pill">Innovation</span>
-    <span class="pill">Integrity</span>
-    <span class="pill">Impact</span>
-  </div>
-</section>
-
-
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 MYRAS Consulting — build v2</p>
+    <p>© 2025 MYRAS Consulting — build v3</p>
   </footer>
-
-  <!-- Dropdown tap handling -->
-  <script>
-    document.querySelectorAll('.dropdown > a').forEach(link=>{
-      link.addEventListener('click',e=>{
-        if(window.innerWidth<=768){e.preventDefault();link.parentElement.classList.toggle('open');}
-      });
-    });
-  </script>
 </body>
 </html>

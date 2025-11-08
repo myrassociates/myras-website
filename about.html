@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | MYRAS Consulting</title>
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css?v=20251109"/>
+  <script defer src="script.js?v=20251109"></script>
+
+  <style>
+    .page-hero{ padding-top:120px; padding-bottom:36px; text-align:center; color:#eaf2ff; }
+    .page-hero h1{ font-size: clamp(1.8rem, 2.8vw, 2.4rem); margin-bottom:8px; }
+    .breadcrumbs{ font-size:.95rem; color:#93c5fd; margin-bottom:10px; }
+    .breadcrumbs a{ color:#c7d2fe; text-decoration:none; }
+    .about-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px; margin-top:16px; }
+    .about-card{ text-align:left; padding:20px; border-radius:16px; background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08); box-shadow: 0 10px 28px rgba(0,0,0,.25); }
+    .about-card h3{ color:#fff; margin-bottom:8px; font-size:1.1rem; }
+    .about-card ul{ margin-left:18px; }
+    .about-band{ padding:22px; margin: 0 50px; border-radius:16px; background: var(--grad-1); color:#fff; box-shadow: 0 16px 48px rgba(37,99,235,.35); }
+    @media(max-width:900px){ .about-band{ margin:0 22px; } }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="brand" onclick="location.href='index.html'" style="cursor:pointer">
+      <svg viewBox="0 0 48 48" aria-hidden="true" width="28" height="28">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a6adf"/><stop offset="1" stop-color="#0b3d91"/></linearGradient></defs>
+        <path d="M24 5c1.7 0 3.3.9 4.2 2.4l13.6 23.3c1.9 3.2-.4 7.3-4.2 7.3H10.4c-3.8 0-6.1-4.1-4.2-7.3L19.8 7.4C20.7 5.9 22.3 5 24 5z" fill="url(#g)"/>
+        <path d="M24 16.5c-1 0-1.9.5-2.4 1.4l-8.1 14c-.5.9-.5 2 0 2.9.5.9 1.4 1.4 2.4 1.4h16.2c1 0 1.9-.5 2.4-1.4.5-.9.5-2 0-2.9l-8.1-14c-.5-.9-1.4-1.4-2.4-1.4z" fill="#fff" opacity=".25"/>
+      </svg>
+      <div class="logo">MYRAS</div>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+
+        <li class="dropdown">
+          <a href="about.html">About <span class="caret">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="#who">Who We Are</a>
+            <a href="#expertise">Our Expertise</a>
+            <a href="#values">Our Values</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="services.html">Services <span class="caret">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="services.html#consulting">IT Consulting & Staffing</a>
+            <a href="services.html#cloud">Cloud & Data Solutions</a>
+            <a href="services.html#enterprise">Enterprise Support & Automation</a>
+            <a href="services.html#bi">BI & Advanced Analytics</a>
+            <a href="services.html#teradata">Teradata & DW</a>
+            <a href="services.html#devops">DevOps & Automation</a>
+            <hr style="border:0;border-top:1px solid #e1e5f2;margin:6px 0;">
+            <a href="solutions.html">Reference Solutions →</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="industries.html">Industries <span class="caret">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="industries.html#bfs">Banking & Financial Services</a>
+            <a href="industries.html#kpo">KPO & Shared Services</a>
+            <a href="industries.html#audit">Audit & Taxation</a>
+            <a href="industries.html#health">Healthcare & Life Sciences</a>
+            <a href="industries.html#retail">Retail & eCommerce</a>
+          </div>
+        </li>
+
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="breadcrumbs"><a href="index.html#home">Home</a> · <span>About</span></div>
+    <h1>About MYRAS</h1>
+    <p>Experienced consultants across IT, Banking, KPO, Auditing, and Taxation — delivering strategy, architecture, data, and operational excellence.</p>
+  </section>
+
+  <!-- Who We Are -->
+  <section id="who" class="services" style="padding-top:40px;">
+    <h2>Who We Are</h2>
+    <p>We are a consulting firm focused on pragmatic solutions that deliver measurable outcomes. We blend enterprise architecture thinking with agile execution to modernize, automate, and scale.</p>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>DNA</h3>
+        <ul>
+          <li>Outcome-focused delivery</li>
+          <li>Transparent communication</li>
+          <li>Partnership mindset</li>
+          <li>Documentation & knowledge transfer</li>
+        </ul>
+      </div>
+      <div class="about-card">
+        <h3>Engagement Models</h3>
+        <ul>
+          <li>Advisory & Roadmaps</li>
+          <li>Team Augmentation</li>
+          <li>End-to-End Delivery</li>
+          <li>Managed Services</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Expertise -->
+  <section id="expertise" class="services">
+    <h2>Our Expertise</h2>
+    <p>Enterprise Data, Teradata, Cloud (AWS/Azure/GCP), DevOps automation, BI/Analytics, and ITSM/SRE operations — aligned to TOGAF, PMBOK and Agile/Scrum practices.</p>
+    <div class="about-grid">
+      <div class="about-card"><h3>Architecture</h3><p>Target-state blueprints, security & networking patterns, landing zones, and data platform design.</p></div>
+      <div class="about-card"><h3>Data & Analytics</h3><p>ETL/ELT, semantic models, dashboards, and ML orchestration. Quality, governance, and lineage included.</p></div>
+      <div class="about-card"><h3>Cloud & DevOps</h3><p>CI/CD, infra-as-code, observability, and release automation for reliable, frequent delivery.</p></div>
+      <div class="about-card"><h3>Operations</h3><p>Incident/Problem/Change processes, SLAs, on-call, reliability metrics and runbooks.</p></div>
+    </div>
+  </section>
+
+  <!-- Our Values -->
+  <section id="values" class="services">
+    <h2>Our Values</h2>
+    <div class="about-grid">
+      <div class="about-card"><h3>Integrity</h3><p>We say what we’ll do, and do what we say — with clear, honest communication.</p></div>
+      <div class="about-card"><h3>Pragmatism</h3><p>Simple, proven designs before complex solutions. Documentation and handover built-in.</p></div>
+      <div class="about-card"><h3>Excellence</h3><p>Quality gates, code reviews, and continuous improvement.</p></div>
+      <div class="about-card"><h3>Impact</h3><p>We measure success in outcomes: cost, reliability, speed, and insight.</p></div>
+    </div>
+  </section>
+
+  <!-- Band -->
+  <section class="about-band">
+    <h3>Consulting Excellence. Delivered.</h3>
+    <p>We operate with TOGAF-aligned architecture, PMBOK-driven governance, and Agile/Scrum execution to ensure predictable, high-quality outcomes.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 MYRAS Consulting — About</p>
+  </footer>
+</body>
+</html>
