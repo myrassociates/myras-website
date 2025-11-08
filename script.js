@@ -185,3 +185,115 @@ if (contactForm) {
   }, { threshold: 0.12 });
   targets.forEach(el => io.observe(el));
 })();
+
+/* ===== Flyers Carousel (auto-slide, buttons, dots, swipe) ===== */
+(function flyersCarousel(){
+  const section = document.getElementById('flyers');
+  if (!section) return;
+
+  const track   = section.querySelector('.carousel-track');
+  const prevBtn = section.querySelector('.carousel-btn.prev');
+  const nextBtn = section.querySelector('.carousel-btn.next');
+  const dotsBox = section.querySelector('.carousel-dots');
+  if (!track || !prevBtn || !nextBtn || !dotsBox) return;
+
+  const slides = Array.from(track.querySelectorAll('.slide'));
+  if (!slides.length) return;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', `Go to slide ${i+1}`);
+    b.addEventListener('click', () => goTo(i));
+    dotsBox.appendChild(b);
+  });
+
+  let active = 0;
+  let auto    = (track.dataset.autoplay || 'true') === 'true';
+  let interval= parseInt(track.dataset.interval || '4200', 10);
+  let timer   = null;
+  let isHover = false;
+
+  function slideWidth(){
+    // Width of one column (grid-auto-columns) including gap by measuring first slide
+    const s = slides[0];
+    const styles = window.getComputedStyle(s);
+    const w = s.getBoundingClientRect().width;
+    const mr = parseFloat(styles.marginRight) || 0;
+    const ml = parseFloat(styles.marginLeft) || 0;
+    return w + ml + mr + 18; // 18px grid gap from CSS
+  }
+
+  function updateDots(){
+    dotsBox.querySelectorAll('button').forEach((d,i)=>{
+      d.classList.toggle('active', i === active);
+    });
+  }
+
+  function normalizeIndex(idx){
+    if (idx < 0) return slides.length - 1;
+    if (idx >= slides.length) return 0;
+    return idx;
+  }
+
+  function goTo(idx){
+    active = normalizeIndex(idx);
+    const x = active * slideWidth();
+    track.scrollTo({ left: x, behavior: 'smooth' });
+    updateDots();
+    restartAuto();
+  }
+
+  function next(){ goTo(active + 1); }
+  function prev(){ goTo(active - 1); }
+
+  // Auto play
+  function startAuto(){
+    if (!auto || timer) return;
+    timer = setInterval(()=>{ if (!isHover) next(); }, interval);
+  }
+  function stopAuto(){ if (timer){ clearInterval(timer); timer = null; } }
+  function restartAuto(){ stopAuto(); startAuto(); }
+
+  // Pause on hover
+  track.addEventListener('mouseenter', ()=>{ isHover = true; });
+  track.addEventListener('mouseleave', ()=>{ isHover = false; });
+
+  // Buttons
+  nextBtn.addEventListener('click', next);
+  prevBtn.addEventListener('click', prev);
+
+  // Touch swipe
+  let startX = 0, distX = 0, isTouching = false;
+  track.addEventListener('touchstart', (e)=>{ isTouching = true; startX = e.touches[0].clientX; distX = 0; }, {passive:true});
+  track.addEventListener('touchmove',  (e)=>{ if(!isTouching) return; distX = e.touches[0].clientX - startX; }, {passive:true});
+  track.addEventListener('touchend',   ()=>{
+    if(!isTouching) return;
+    isTouching = false;
+    const threshold = 40; // minimal swipe px
+    if (distX < -threshold) next();
+    else if (distX > threshold) prev();
+  });
+
+  // Sync active index when user scrolls manually (e.g., mouse wheel/drag)
+  let scrollDebounce = null;
+  track.addEventListener('scroll', ()=>{
+    if (scrollDebounce) cancelAnimationFrame(scrollDebounce);
+    scrollDebounce = requestAnimationFrame(()=>{
+      const idx = Math.round(track.scrollLeft / slideWidth());
+      active = normalizeIndex(idx);
+      updateDots();
+    });
+  });
+
+  // Init
+  updateDots();
+  startAuto();
+
+  // Adjust on resize
+  window.addEventListener('resize', () => {
+    // Snap back to active slide to keep alignment
+    goTo(active);
+  });
+})();
+
