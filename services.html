@@ -9,18 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css?v=20251109"/>
   <script defer src="script.js?v=20251109"></script>
-
-  <style>
-    .page-hero{ padding-top:120px; padding-bottom:40px; text-align:center; color:#eaf2ff; }
-    .page-hero h1{ font-size: clamp(1.8rem, 2.8vw, 2.4rem); margin-bottom:8px; }
-    .breadcrumbs{ font-size:.95rem; color:#93c5fd; margin-bottom:10px; }
-    .breadcrumbs a{ color:#c7d2fe; text-decoration:none; }
-    .service-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:20px; margin-top:20px; }
-    .service-card{ text-align:left; padding:22px; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08); box-shadow: 0 10px 28px rgba(0,0,0,.25); transition:.3s; }
-    .service-card:hover{ transform:translateY(-5px); box-shadow:0 18px 40px rgba(0,0,0,.35),0 0 0 1px rgba(37,99,235,.25); }
-    .service-card h3{ color:#fff; margin-bottom:8px; font-size:1.1rem; }
-    .service-card p{ color:#d1d5db; }
-  </style>
 </head>
 <body>
 
@@ -56,6 +44,7 @@
             <a href="#bi">BI & Advanced Analytics</a>
             <a href="#teradata">Teradata & DW</a>
             <a href="#devops">DevOps & Automation</a>
+            <a href="#sap">Enterprise Applications (SAP)</a>
             <hr style="border:0;border-top:1px solid #e1e5f2;margin:6px 0;">
             <a href="solutions.html">Reference Solutions →</a>
           </div>
@@ -69,6 +58,12 @@
             <a href="industries.html#audit">Audit & Taxation</a>
             <a href="industries.html#health">Healthcare & Life Sciences</a>
             <a href="industries.html#retail">Retail & eCommerce</a>
+            <a href="industries.html#logistics">Logistics</a>
+            <a href="industries.html#manufacturing">Manufacturing</a>
+            <a href="industries.html#pharma">Pharma</a>
+            <a href="industries.html#hospitals">Hospitals</a>
+            <a href="industries.html#hotels">Hotels & Hospitality</a>
+            <a href="industries.html#other">Other Digital Solutions</a>
           </div>
         </li>
 
@@ -81,77 +76,114 @@
   <section class="page-hero">
     <div class="breadcrumbs"><a href="index.html#home">Home</a> · <span>Services</span></div>
     <h1>Our Services</h1>
-    <p>We deliver strategy, architecture, engineering, and operations services — bridging business goals and technical execution.</p>
+    <p>Strategy, architecture, engineering, and operations — delivered with TOGAF, PMBOK, and Agile best practices.</p>
   </section>
 
-  <!-- Services List -->
-  <section class="services" id="consulting">
+  <!-- IT Consulting & Staffing -->
+  <section class="services" id="consulting" style="padding-top:40px;">
     <h2>IT Consulting & Staffing</h2>
     <div class="service-grid">
       <div class="service-card">
         <h3>Strategic Advisory</h3>
-        <p>Architecture roadmaps, digital transformation planning, and data strategy aligned to business goals.</p>
+        <p>Architecture roadmaps, transformation planning, and data strategy tightly aligned to business outcomes.</p>
       </div>
       <div class="service-card">
         <h3>Talent & Augmentation</h3>
-        <p>Contract or full-time professionals in Teradata, Cloud, Data, and BI technologies — vetted for excellence.</p>
+        <p>Expert contractors or FTEs in Teradata, Cloud, Data, BI, and DevOps — vetted for excellence.</p>
       </div>
       <div class="service-card">
         <h3>Governance & Delivery</h3>
-        <p>PMBOK-aligned project management and Agile-based delivery for predictable outcomes.</p>
+        <p>PMBOK program management with Agile/Scrum execution for predictable results.</p>
       </div>
     </div>
   </section>
 
+  <!-- Cloud & Data Solutions -->
   <section class="services" id="cloud">
     <h2>Cloud & Data Solutions</h2>
-    <p>Cloud-native architectures, modern data platforms, and seamless migrations across AWS, Azure, and GCP.</p>
+    <p>Cloud-native architectures, modern data platforms, and seamless migrations on AWS, Azure, and GCP.</p>
     <div class="service-grid">
-      <div class="service-card"><h3>Modern Data Platforms</h3><p>Designing secure, scalable data lakes and warehouses with pipelines using ADF, Glue, Dataflow, and Synapse.</p></div>
-      <div class="service-card"><h3>Cloud Migration</h3><p>Rehost, replatform, and refactor approaches with cost, security, and resilience optimization. <a href="solutions.html#cloud">View Solutions</a></p></div>
-      <div class="service-card"><h3>Data Governance</h3><p>Metadata management, data quality frameworks, and lineage tracking for compliance and trust.</p></div>
+      <div class="service-card"><h3>Modern Data Platforms</h3><p>Secure, scalable lakes & warehouses with ADF/Glue/Dataflow & Synapse/Snowflake/BigQuery.</p></div>
+      <div class="service-card"><h3>Cloud Migration</h3><p>Rehost, replatform, and refactor with security, cost, and resilience optimization. <a href="solutions.html#cloud">View Solutions</a></p></div>
+      <div class="service-card"><h3>Data Governance</h3><p>Metadata, quality, lineage, and access controls for compliance and trust.</p></div>
     </div>
   </section>
 
+  <!-- Enterprise Support & Automation -->
   <section class="services" id="enterprise">
     <h2>Enterprise Support & Automation</h2>
     <div class="service-grid">
-      <div class="service-card"><h3>Production Support</h3><p>24x7 monitoring, incident response, and release management across complex enterprise platforms.</p></div>
-      <div class="service-card"><h3>Automation</h3><p>Shell/Python/Ansible scripting to reduce manual effort and enhance reliability.</p></div>
-      <div class="service-card"><h3>Transition Management</h3><p>End-to-end ownership from KT to steady state with clear documentation and governance.</p></div>
+      <div class="service-card"><h3>Production Support</h3><p>24x7 monitoring, incident response, and release management across complex platforms.</p></div>
+      <div class="service-card"><h3>Automation</h3><p>Shell/Python/Ansible scripting to reduce toil and boost reliability.</p></div>
+      <div class="service-card"><h3>Transition Management</h3><p>KT to steady state with runbooks, SLAs, and governance.</p></div>
     </div>
   </section>
 
+  <!-- BI & Advanced Analytics -->
   <section class="services" id="bi">
     <h2>BI & Advanced Analytics</h2>
     <div class="service-grid">
-      <div class="service-card"><h3>Visualization</h3><p>Interactive dashboards using Power BI, Tableau, and Looker with unified semantic layers. <a href="solutions.html#bi">Explore BI Flow</a></p></div>
-      <div class="service-card"><h3>ETL/ELT Engineering</h3><p>Optimized pipelines, transformations, and performance tuning in Teradata, Snowflake, or BigQuery. <a href="solutions.html#etl">ETL Patterns</a></p></div>
-      <div class="service-card"><h3>Data Science Enablement</h3><p>Data preparation, model deployment, and monitoring for machine learning and AI initiatives.</p></div>
+      <div class="service-card"><h3>Visualization</h3><p>Interactive dashboards with Power BI, Tableau, Looker + unified semantic models. <a href="solutions.html#bi">Explore BI Flow</a></p></div>
+      <div class="service-card"><h3>ETL/ELT Engineering</h3><p>Optimized transformations and performance tuning in Teradata/Snowflake/BigQuery. <a href="solutions.html#etl">ETL Patterns</a></p></div>
+      <div class="service-card"><h3>Data Science Enablement</h3><p>Data prep, feature stores, model deployment & monitoring.</p></div>
     </div>
   </section>
 
+  <!-- Teradata & Data Warehousing -->
   <section class="services" id="teradata">
     <h2>Teradata & Data Warehousing</h2>
     <div class="service-grid">
-      <div class="service-card"><h3>Design & Development</h3><p>End-to-end DW lifecycle — schema design, ETL, optimization, and capacity planning.</p></div>
-      <div class="service-card"><h3>Performance Tuning</h3><p>SQL rewrite, stats collection, and workload management for high-performance Teradata systems.</p></div>
-      <div class="service-card"><h3>Migration</h3><p>Re-engineering workloads from legacy systems to cloud-native warehouses like Snowflake or BigQuery.</p></div>
+      <div class="service-card"><h3>Design & Development</h3><p>End-to-end DW lifecycle — schema design, ETL, optimization, capacity planning.</p></div>
+      <div class="service-card"><h3>Performance Tuning</h3><p>SQL rewrite, stats, and workload management for high-performance systems.</p></div>
+      <div class="service-card"><h3>Migration</h3><p>Re-engineer workloads to cloud-native warehouses like Snowflake or BigQuery.</p></div>
     </div>
   </section>
 
+  <!-- DevOps & Automation -->
   <section class="services" id="devops">
     <h2>DevOps & Automation</h2>
     <div class="service-grid">
-      <div class="service-card"><h3>CI/CD</h3><p>Automated build, test, and deploy pipelines using GitHub Actions, Jenkins, or Azure DevOps.</p></div>
-      <div class="service-card"><h3>Infrastructure as Code</h3><p>Terraform, ARM, and CloudFormation templates for scalable, repeatable environments.</p></div>
-      <div class="service-card"><h3>Observability</h3><p>Metrics, logging, and tracing with Prometheus, ELK, and Grafana to achieve reliability and uptime.</p></div>
+      <div class="service-card"><h3>CI/CD</h3><p>Automated build, test, deploy with GitHub Actions/Jenkins/Azure DevOps.</p></div>
+      <div class="service-card"><h3>Infrastructure as Code</h3><p>Terraform/ARM/CloudFormation for consistent environments.</p></div>
+      <div class="service-card"><h3>Observability</h3><p>Metrics, logs, tracing with Prometheus/ELK/Grafana to improve reliability.</p></div>
+    </div>
+  </section>
+
+  <!-- NEW: Enterprise Applications (SAP) -->
+  <section class="services" id="sap">
+    <h2>Enterprise Applications (SAP)</h2>
+    <p>Consulting, implementations, rollouts, and AMS for SAP — integrated with your data & cloud strategy.</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>S/4HANA & ECC</h3>
+        <p>Greenfield/brownfield implementations, global rollouts, and migrations from ECC to S/4HANA.</p>
+      </div>
+      <div class="service-card">
+        <h3>Analytics & Warehousing</h3>
+        <p>BW/4HANA modeling, data integration to Snowflake/BigQuery/Synapse; semantic layers for BI.</p>
+      </div>
+      <div class="service-card">
+        <h3>Integration & Extensions</h3>
+        <p>SAP BTP, CPI, PI/PO, and API/microservices to connect SAP with CRM, eCom, and data platforms.</p>
+      </div>
+      <div class="service-card">
+        <h3>Functional Expertise</h3>
+        <p>FI/CO, SD, MM, PP, QM, HCM — process design, best practices, and documentation.</p>
+      </div>
+      <div class="service-card">
+        <h3>AMS & Enhancements</h3>
+        <p>Stabilization, continuous improvements, and SLA-backed support with clear governance.</p>
+      </div>
+      <div class="service-card">
+        <h3>Reference Patterns</h3>
+        <p><a href="solutions.html#cloud">Cloud Migration</a> • <a href="solutions.html#etl">ETL & Streaming</a> • <a href="solutions.html#bi">BI & KPIs</a></p>
+      </div>
     </div>
   </section>
 
   <section class="promo-band">
     <h2>Consulting Excellence. Delivered.</h2>
-    <p>From architecture blueprints to production SLAs — MYRAS ensures measurable business value through technology, data, and innovation.</p>
+    <p>From architecture blueprints to production SLAs — MYRAS ensures measurable business value through technology, data, and SAP.</p>
   </section>
 
   <footer>

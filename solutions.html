@@ -11,13 +11,41 @@
   <script defer src="script.js?v=20251109"></script>
 
   <style>
-    /* tiny helpers to frame diagrams without adding global CSS */
-    .diag { background: #0f172a; border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:16px; box-shadow:0 10px 28px rgba(0,0,0,.25); }
+    /* Frame/diagram helpers */
+    .diag { background:#0f172a; border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:16px; box-shadow:0 10px 28px rgba(0,0,0,.25); }
     .mini { color:#cbd5e1; font-size:.95rem; margin-top:8px; }
     .two-col { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin-top:18px; }
+
+    /* Sticky sub-nav */
+    .subnav {
+      position: sticky; top: 70px; z-index: 900;
+      background: rgba(11,16,32,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      margin: 0 50px 10px; padding: 10px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.25);
+    }
+    .subnav a {
+      display:inline-block; margin: 4px 8px; padding:8px 14px; border-radius:999px;
+      text-decoration:none; color:#eaf2ff; border:1px solid rgba(255,255,255,.10);
+      transition:.2s;
+    }
+    .subnav a:hover { background: rgba(37,99,235,.25); }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed; right: 16px; bottom: 16px; z-index: 950;
+      display: none; /* toggled by JS */
+      padding: 10px 14px; border-radius:999px; border:0; cursor:pointer;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color:#fff; font-weight:600; box-shadow:0 12px 28px rgba(37,99,235,.35);
+    }
+    .back-to-top:hover { transform: translateY(-2px); }
+    @media(max-width:900px){ .subnav{ margin:0 22px 10px; } }
   </style>
 </head>
-<body>
+<body id="top">
 
   <!-- Navbar -->
   <header class="navbar">
@@ -79,6 +107,14 @@
     <p>Proven patterns for ETL (batch & streaming), on-prem → cloud migrations across AWS/Azure/GCP, and BI flows from data to decisions.</p>
     <p class="mini">Aligned to TOGAF architecture layers, governed with PMBOK, executed via Agile/Scrum.</p>
   </section>
+
+  <!-- Sticky Sub-Nav -->
+  <nav class="subnav" aria-label="Solutions sub-navigation">
+    <a href="#etl">ETL</a>
+    <a href="#cloud">Cloud Migration</a>
+    <a href="#bi">Reporting & BI</a>
+    <a href="#top" title="Back to page top">Top ↑</a>
+  </nav>
 
   <!-- Quick anchors -->
   <section class="services" style="padding-top:40px;">
@@ -227,6 +263,9 @@
     </div>
   </section>
 
+  <!-- Floating Back-to-Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑ Top</button>
+
   <section class="promo-band" style="margin-bottom:0;">
     <h2>Consulting Excellence. Delivered.</h2>
     <p>Need a tailored blueprint? We’ll adapt these patterns to your stack, budget, and timeline — then deliver with clear SLAs.</p>
@@ -235,5 +274,20 @@
   <footer>
     <p>© 2025 MYRAS Consulting — Reference Solutions</p>
   </footer>
+
+  <!-- Tiny inline JS: show/hide Back-to-Top + smooth jump -->
+  <script>
+    (function(){
+      const btn = document.getElementById('backToTop');
+      if(!btn) return;
+      window.addEventListener('scroll', () => {
+        btn.style.display = window.scrollY > 400 ? 'inline-block' : 'none';
+      });
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('#top').scrollIntoView({ behavior:'smooth', block:'start' });
+      });
+    })();
+  </script>
 </body>
 </html>
