@@ -465,6 +465,16 @@ hr.sep { border:0; height:1px; background:linear-gradient(90deg, transparent, rg
 }
 .navbar svg stop { animation: logoShimmerStops 6s ease-in-out infinite; }
 
+/* Theme pill *fixed* previews (so each pill shows its own colors) */
+.theme-pill[data-theme="blue"]    { --pill-start:#2563eb; --pill-end:#7c3aed; }
+.theme-pill[data-theme="teal"]    { --pill-start:#06b6d4; --pill-end:#2563eb; }
+.theme-pill[data-theme="violet"]  { --pill-start:#7c3aed; --pill-end:#a855f7; }
+.theme-pill[data-theme="emerald"] { --pill-start:#10b981; --pill-end:#06b6d4; }
+.theme-pill[data-theme="sunset"]  { --pill-start:#f97316; --pill-end:#ef4444; }
+.theme-pill[data-theme="dark"]    { --pill-start:#64748b; --pill-end:#0ea5e9; }
+.theme-pill[data-theme="contrast"]{ --pill-start:#ffffff; --pill-end:#ffffff; }
+
+
 /* ===== FINAL THEME OVERRIDES (keep at end) ===== */
 body.theme-blue    { --accent-start:#2563eb; --accent-end:#7c3aed; }
 body.theme-teal    { --accent-start:#06b6d4; --accent-end:#2563eb; }
