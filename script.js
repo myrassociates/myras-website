@@ -297,30 +297,33 @@ if (contactForm) {
   });
 })();
 
-/* ===== Theme switcher (persistent) ===== */
-(function(){
+/* ===== THEME switcher (robust) ===== */
+document.addEventListener('DOMContentLoaded', function(){
   const KEY = 'myras-theme';
   const body = document.body;
   const btn = document.getElementById('themeToggle');
   const panel = document.getElementById('themePanel');
   if(!btn || !panel) return;
 
-  // load saved or default
-  const saved = localStorage.getItem(KEY);
-  applyTheme(saved || 'blue');
-
+  function removeExistingTheme(){
+    // remove only classes that start with "theme-"
+    [...body.classList].forEach(c => { if (c.indexOf('theme-') === 0) body.classList.remove(c); });
+  }
   function applyTheme(name){
-    // remove any previous theme-* class
-    body.className = (body.className || '').replace(/\btheme-[a-z]+\b/g, '').trim();
+    removeExistingTheme();
     body.classList.add('theme-' + name);
     localStorage.setItem(KEY, name);
-    // mark selected
-    panel.querySelectorAll('.theme-pill').forEach(p=>{
+    // highlight selected pill if present
+    panel.querySelectorAll('.theme-pill').forEach(p => {
       p.classList.toggle('selected', p.dataset.theme === name);
     });
   }
 
-  // open/close panel
+  // Load saved or default to blue
+  const saved = localStorage.getItem(KEY);
+  applyTheme(saved || 'blue');
+
+  // Open/close panel
   btn.addEventListener('click', (e)=>{
     e.stopPropagation();
     const open = panel.classList.toggle('open');
@@ -328,7 +331,7 @@ if (contactForm) {
   });
   document.addEventListener('click', ()=> panel.classList.remove('open'));
 
-  // choose a theme
+  // Pick a theme
   panel.addEventListener('click', (e)=>{
     const pill = e.target.closest('.theme-pill');
     if(!pill) return;
@@ -336,55 +339,8 @@ if (contactForm) {
     panel.classList.remove('open');
   });
 
-  // first-visit dark-mode respect (only if no saved)
+  // First visit: respect dark mode *only if no saved theme*
   if(!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
     applyTheme('dark');
   }
-})();
-
-/* ===== Auto Theme Rotation (optional) ===== */
-(function autoThemeRotate(){
-  const KEY = 'myras-theme';
-  const ROTATE_KEY = 'myras-theme-autorotate-disabled';
-  const body = document.body;
-
-  // stop if user chose a theme before, or admin disabled rotation, or prefers-reduced-motion
-  if (localStorage.getItem(KEY) || localStorage.getItem(ROTATE_KEY) === '1') return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  const themes = ['blue','teal','emerald','violet','sunset','dark'];
-
-  function applyTheme(name){
-    body.className = (body.className || '').replace(/\btheme-[a-z]+\b/g, '').trim();
-    body.classList.add('theme-' + name);
-    const panel = document.getElementById('themePanel');
-    if (panel) panel.querySelectorAll('.theme-pill').forEach(p=>p.classList.toggle('selected', p.dataset.theme === name));
-  }
-
-  let idx = (new Date().getHours()) % themes.length;
-  applyTheme(themes[idx]);
-
-  const INTERVAL = 20000; // 20s
-  let timer = setInterval(()=>{ idx = (idx + 1) % themes.length; applyTheme(themes[idx]); }, INTERVAL);
-
-  // pause when tab hidden
-  document.addEventListener('visibilitychange', ()=>{
-    if (document.hidden) { clearInterval(timer); timer = null; }
-    else if (!timer) { timer = setInterval(()=>{ idx = (idx + 1) % themes.length; applyTheme(themes[idx]); }, INTERVAL); }
-  });
-
-  // if user opens the panel or picks a theme, stop rotation and persist choice
-  const btn = document.getElementById('themeToggle');
-  const panel = document.getElementById('themePanel');
-  if (btn) btn.addEventListener('click', ()=>{ if (timer){ clearInterval(timer); timer=null; } }, { once:true });
-  if (panel) panel.addEventListener('click', (e)=>{
-    const pill = e.target.closest('.theme-pill');
-    if (!pill) return;
-    localStorage.setItem(KEY, pill.dataset.theme);
-    if (timer){ clearInterval(timer); timer = null; }
-  });
-
-  // admin quick kill switch:
-  // localStorage.setItem('myras-theme-autorotate-disabled','1'); location.reload();
-})();
-
+});

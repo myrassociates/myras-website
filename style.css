@@ -480,3 +480,20 @@ body.theme-contrast{ --bg:#000; --text:#fff; --accent-start:#fff; --accent-end:#
 .theme-dot{ width:14px; height:14px; border-radius:999px; background-image:var(--grad-1); }
 .theme-name{ font-size:.9rem; }
 @media (max-width:768px){ .theme-panel{ right:12px; top:64px; width:92vw; } }
+
+/* ===== Theme pill previews (each shows its own colors) ===== */
+.theme-pill { --pill-start: var(--accent-start); --pill-end: var(--accent-end); }
+.theme-pill[data-theme="blue"]    { --pill-start:#2563eb; --pill-end:#7c3aed; }
+.theme-pill[data-theme="teal"]    { --pill-start:#06b6d4; --pill-end:#2563eb; }
+.theme-pill[data-theme="violet"]  { --pill-start:#7c3aed; --pill-end:#a855f7; }
+.theme-pill[data-theme="emerald"] { --pill-start:#10b981; --pill-end:#06b6d4; }
+.theme-pill[data-theme="sunset"]  { --pill-start:#f97316; --pill-end:#ef4444; }
+.theme-pill[data-theme="dark"]    { --pill-start:#64748b; --pill-end:#0ea5e9; } /* subtle steel-blue */
+.theme-pill[data-theme="contrast"]{ --pill-start:#ffffff; --pill-end:#ffffff; }
+
+.theme-dot{
+  width:12px; height:12px; border-radius:999px;
+  background-image: linear-gradient(135deg, var(--pill-start), var(--pill-end));
+  border:1px solid rgba(255,255,255,.25);
+}
+.theme-pill.selected{ outline:2px solid rgba(255,255,255,.35); }
