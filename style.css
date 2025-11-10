@@ -486,3 +486,17 @@ body.theme-contrast{ --bg:#000; --text:#fff;   --accent-start:#fff;    --accent-
 
 /* Recompute grad if theme changes (ensures header/buttons pick new pair) */
 body[class*="theme-"] { --grad-1: linear-gradient(135deg, var(--accent-start), var(--accent-end)); }
+
+/* ===== NAVBAR THEME FIX (force navbar to follow theme) ===== */
+body .navbar { 
+  background: var(--grad-1) !important;     /* use the active theme gradient */
+  /* If you prefer a solid header instead of gradient, use:
+     background-color: var(--accent-start) !important;
+  */
+}
+
+/* Optional: keep dropdown hover consistent with the theme */
+body .dropdown-menu a:hover{ 
+  background: color-mix(in srgb, var(--accent-start) 20%, transparent);
+}
+
