@@ -500,3 +500,52 @@ body .dropdown-menu a:hover{
   background: color-mix(in srgb, var(--accent-start) 20%, transparent);
 }
 
+/* ===== Brand text visibility fixes ===== */
+.navbar .logo{
+  /* keep the gradient text */
+  background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* add outline + glow for contrast on any bg */
+  -webkit-text-stroke: 0.8px rgba(0,0,0,0.45); /* subtle dark edge */
+  text-shadow:
+    0 1px 2px rgba(0,0,0,0.55),      /* inner lift */
+    0 0 10px rgba(0,0,0,0.35);       /* outer glow */
+  filter:
+    drop-shadow(0 1px 2px rgba(0,0,0,0.55))
+    drop-shadow(0 0 10px rgba(0,0,0,0.28));    /* fallback for some browsers */
+}
+
+/* Stronger help when users prefer higher contrast */
+@media (prefers-contrast: more) {
+  .navbar .logo{
+    -webkit-text-stroke: 1px rgba(0,0,0,0.6);
+    text-shadow:
+      0 1px 2px rgba(0,0,0,0.7),
+      0 0 12px rgba(0,0,0,0.4);
+  }
+}
+
+/* Mobile: use solid text for perfect legibility on small screens */
+@media (max-width: 640px){
+  .navbar .logo{
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+    color: #ffffff; /* solid white on mobile */
+  }
+}
+
+/* High-contrast theme: solid text as well */
+body.theme-contrast .navbar .logo{
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+  color: #000; /* black on white background */
+}
