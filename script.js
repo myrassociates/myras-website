@@ -297,50 +297,49 @@ if (contactForm) {
   });
 })();
 
-/* ===== THEME switcher (robust) ===== */
+/* ===== THEME switcher (works on all pages, UI optional) ===== */
 document.addEventListener('DOMContentLoaded', function(){
   const KEY = 'myras-theme';
   const body = document.body;
   const btn = document.getElementById('themeToggle');
   const panel = document.getElementById('themePanel');
-  if(!btn || !panel) return;
 
   function removeExistingTheme(){
-    // remove only classes that start with "theme-"
     [...body.classList].forEach(c => { if (c.indexOf('theme-') === 0) body.classList.remove(c); });
   }
   function applyTheme(name){
     removeExistingTheme();
     body.classList.add('theme-' + name);
     localStorage.setItem(KEY, name);
-    // highlight selected pill if present
-    panel.querySelectorAll('.theme-pill').forEach(p => {
-      p.classList.toggle('selected', p.dataset.theme === name);
-    });
+    if (panel) {
+      panel.querySelectorAll('.theme-pill').forEach(p => {
+        p.classList.toggle('selected', p.dataset.theme === name);
+      });
+    }
   }
 
-  // Load saved or default to blue
+  // 1) Always apply saved/default theme on every page
   const saved = localStorage.getItem(KEY);
   applyTheme(saved || 'blue');
 
-  // Open/close panel
-  btn.addEventListener('click', (e)=>{
-    e.stopPropagation();
-    const open = panel.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  document.addEventListener('click', ()=> panel.classList.remove('open'));
+  // 2) Only if controls exist (Home), wire up the UI
+  if (btn && panel) {
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const open = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', ()=> panel.classList.remove('open'));
+    panel.addEventListener('click', (e)=>{
+      const pill = e.target.closest('.theme-pill');
+      if(!pill) return;
+      applyTheme(pill.dataset.theme);
+      panel.classList.remove('open');
+    });
 
-  // Pick a theme
-  panel.addEventListener('click', (e)=>{
-    const pill = e.target.closest('.theme-pill');
-    if(!pill) return;
-    applyTheme(pill.dataset.theme);
-    panel.classList.remove('open');
-  });
-
-  // First visit: respect dark mode *only if no saved theme*
-  if(!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
-    applyTheme('dark');
+    // First visit: respect dark mode if no saved theme
+    if(!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+      applyTheme('dark');
+    }
   }
 });

@@ -497,3 +497,7 @@ body.theme-contrast{ --bg:#000; --text:#fff; --accent-start:#fff; --accent-end:#
   border:1px solid rgba(255,255,255,.25);
 }
 .theme-pill.selected{ outline:2px solid rgba(255,255,255,.35); }
+
+
+/* Recompute grad if theme changes */
+body[class*="theme-"] { --grad-1: linear-gradient(135deg, var(--accent-start), var(--accent-end)); }

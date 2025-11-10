@@ -8,8 +8,8 @@
   <!-- Favicon + Fonts + Versioned CSS/JS -->
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css?v=5">
-<script defer src="script.js?v=5"></script>
+<link rel="stylesheet" href="style.css?v=7">
+<script defer src="script.js?v=7"></script>
 </head>
 
 <body>
@@ -17,7 +17,11 @@
 <header class="navbar">
   <div class="brand" onclick="location.href='index.html'" style="cursor:pointer">
     <svg viewBox="0 0 48 48" aria-hidden="true" width="28" height="28">
-      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a6adf"/><stop offset="1" stop-color="#0b3d91"/></linearGradient></defs>
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="var(--accent-start)"/>
+  <stop offset="1" stop-color="var(--accent-end)"/>
+</linearGradient></defs>
+
       <path d="M24 5c1.7 0 3.3.9 4.2 2.4l13.6 23.3c1.9 3.2-.4 7.3-4.2 7.3H10.4c-3.8 0-6.1-4.1-4.2-7.3L19.8 7.4C20.7 5.9 22.3 5 24 5z" fill="url(#g)"/>
       <path d="M24 16.5c-1 0-1.9.5-2.4 1.4l-8.1 14c-.5.9-.5 2 0 2.9.5.9 1.4 1.4 2.4 1.4h16.2c1 0 1.9-.5 2.4-1.4.5-.9.5-2 0-2.9l-8.1-14c-.5-.9-1.4-1.4-2.4-1.4z" fill="#fff" opacity=".25"/>
     </svg>
