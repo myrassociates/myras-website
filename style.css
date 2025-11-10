@@ -595,3 +595,19 @@ body.theme-contrast .navbar .logo{
   filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
 }
 
+/* ===== Logo: steady Myras Blue–Cyan gradient with soft breathing ===== */
+.navbar svg path {
+  fill: url(#g); /* keep the gradient defined inside your SVG <defs> */
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.4));
+  animation: logoPulse 8s ease-in-out infinite;
+}
+
+/* Gentle breathing effect */
+@keyframes logoPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.9; }
+}
+
+/* Define the gradient colors used by url(#g)  */
+.navbar svg stop:first-child  { stop-color: #2563eb; }  /* Electric Blue */
+.navbar svg stop:last-child   { stop-color: #06b6d4; }  /* Cyan blend */
