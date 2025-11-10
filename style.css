@@ -549,3 +549,49 @@ body.theme-contrast .navbar .logo{
   text-shadow: none;
   color: #000; /* black on white background */
 }
+
+/* === Brand text: keep solid white (no gradient) === */
+.navbar .logo{
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  color: #ffffff !important;
+  -webkit-text-stroke: 0 !important;
+  text-shadow: none !important;
+  filter: none !important;
+  animation: none !important; /* stop shimmer */
+}
+
+/* === Logo icon: force visible (solid white) === */
+/* Your logo SVG has two <path> elements; make both white so it pops on any header */
+.navbar svg path{
+  fill: #ffffff !important;
+}
+.navbar svg{
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.45));
+}
+/* Stop any gradient-stop animation on the logo */
+.navbar svg stop{ animation: none !important; }
+
+/* === Keep soft animated shimmer only on logo icon === */
+.navbar svg path {
+  fill: url(#g); /* use the gradient defined in your SVG */
+  animation: logoPulse 8s ease-in-out infinite;
+}
+
+/* Gentle pulsating opacity for shimmer effect */
+@keyframes logoPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+/* Keep gradient stops slowly shifting */
+.navbar svg stop {
+  animation: logoShimmerStops 8s ease-in-out infinite;
+}
+
+/* Ensure visibility on dark and light backgrounds */
+.navbar svg {
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+}
+
