@@ -8,103 +8,85 @@
   <!-- Favicon + Fonts + Versioned CSS/JS -->
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css?v=20251109" />
-  <script defer src="script.js?v=20251109"></script>
+<link rel="stylesheet" href="style.css?v=5">
+<script defer src="script.js?v=5"></script>
 </head>
 
 <body>
   <!-- Navbar (multi-page) -->
-  <header class="navbar">
-    <div class="brand" onclick="location.href='index.html'" style="cursor:pointer">
-      <!-- Inline SVG logo -->
-      <svg viewBox="0 0 48 48" aria-hidden="true" width="28" height="28">
-        <defs>
-          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#2a6adf"/><stop offset="1" stop-color="#0b3d91"/>
-          </linearGradient>
-        </defs>
-        <path d="M24 5c1.7 0 3.3.9 4.2 2.4l13.6 23.3c1.9 3.2-.4 7.3-4.2 7.3H10.4c-3.8 0-6.1-4.1-4.2-7.3L19.8 7.4C20.7 5.9 22.3 5 24 5z" fill="url(#g)"/>
-        <path d="M24 16.5c-1 0-1.9.5-2.4 1.4l-8.1 14c-.5.9-.5 2 0 2.9.5.9 1.4 1.4 2.4 1.4h16.2c1 0 1.9-.5 2.4-1.4.5-.9.5-2 0-2.9l-8.1-14c-.5-.9-1.4-1.4-2.4-1.4z" fill="#fff" opacity=".25"/>
-      </svg>
-      <div class="logo">MYRAS</div>
-    </div>
-
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html#home">Home</a></li>
-
-        <li class="dropdown">
-          <a href="about.html">About <span class="caret">▾</span></a>
-          <div class="dropdown-menu">
-            <a href="about.html#who">Who We Are</a>
-            <a href="about.html#expertise">Our Expertise</a>
-            <a href="about.html#values">Our Values</a>
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <a href="services.html">Services <span class="caret">▾</span></a>
-          <div class="dropdown-menu">
-            <a href="services.html#consulting">IT Consulting & Staffing</a>
-            <a href="services.html#cloud">Cloud & Data Solutions</a>
-            <a href="services.html#enterprise">Enterprise Support & Automation</a>
-            <a href="services.html#bi">BI & Advanced Analytics</a>
-            <a href="services.html#teradata">Teradata & DW</a>
-            <a href="services.html#devops">DevOps & Automation</a>
-            <hr style="border:0;border-top:1px solid #e1e5f2;margin:6px 0;">
-            <a href="solutions.html">Reference Solutions →</a>
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <a href="industries.html">Industries <span class="caret">▾</span></a>
-          <div class="dropdown-menu">
-            <a href="industries.html#bfs">Banking & Financial Services</a>
-            <a href="industries.html#kpo">KPO & Shared Services</a>
-            <a href="industries.html#audit">Audit & Taxation</a>
-            <a href="industries.html#health">Healthcare & Life Sciences</a>
-            <a href="industries.html#retail">Retail & eCommerce</a>
-          </div>
-        </li>
-
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-
-
-<!-- ===== Theme Switcher (start) ===== -->
-<button class="theme-toggle" id="themeToggle" aria-haspopup="true" aria-expanded="false">
-  🎨 Theme
-</button>
-
-<div class="theme-panel" id="themePanel" role="menu" aria-label="Choose theme">
-  <div class="theme-grid">
-    <button class="theme-pill" data-theme="blue">
-      <span class="theme-dot"></span><span class="theme-name">Blue</span>
-    </button>
-    <button class="theme-pill" data-theme="teal">
-      <span class="theme-dot"></span><span class="theme-name">Teal</span>
-    </button>
-    <button class="theme-pill" data-theme="violet">
-      <span class="theme-dot"></span><span class="theme-name">Violet</span>
-    </button>
-    <button class="theme-pill" data-theme="emerald">
-      <span class="theme-dot"></span><span class="theme-name">Emerald</span>
-    </button>
-    <button class="theme-pill" data-theme="sunset">
-      <span class="theme-dot"></span><span class="theme-name">Sunset</span>
-    </button>
-    <button class="theme-pill" data-theme="dark">
-      <span class="theme-dot"></span><span class="theme-name">Dark</span>
-    </button>
-    <button class="theme-pill" data-theme="contrast">
-      <span class="theme-dot"></span><span class="theme-name">Contrast</span>
-    </button>
+<header class="navbar">
+  <div class="brand" onclick="location.href='index.html'" style="cursor:pointer">
+    <svg viewBox="0 0 48 48" aria-hidden="true" width="28" height="28">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a6adf"/><stop offset="1" stop-color="#0b3d91"/></linearGradient></defs>
+      <path d="M24 5c1.7 0 3.3.9 4.2 2.4l13.6 23.3c1.9 3.2-.4 7.3-4.2 7.3H10.4c-3.8 0-6.1-4.1-4.2-7.3L19.8 7.4C20.7 5.9 22.3 5 24 5z" fill="url(#g)"/>
+      <path d="M24 16.5c-1 0-1.9.5-2.4 1.4l-8.1 14c-.5.9-.5 2 0 2.9.5.9 1.4 1.4 2.4 1.4h16.2c1 0 1.9-.5 2.4-1.4.5-.9.5-2 0-2.9l-8.1-14c-.5-.9-1.4-1.4-2.4-1.4z" fill="#fff" opacity=".25"/>
+    </svg>
+    <div class="logo">MYRAS</div>
   </div>
-</div>
-<!-- ===== Theme Switcher (end) ===== -->
 
-  </header>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+
+      <li class="dropdown">
+        <a href="about.html">About <span class="caret">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="about.html#who">Who We Are</a>
+          <a href="about.html#expertise">Our Expertise</a>
+          <a href="about.html#values">Our Values</a>
+        </div>
+      </li>
+
+      <li class="dropdown">
+        <a href="services.html">Services <span class="caret">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="services.html#consulting">IT Consulting & Staffing</a>
+          <a href="services.html#cloud">Cloud & Data Solutions</a>
+          <a href="services.html#enterprise">Enterprise Support & Automation</a>
+          <a href="services.html#bi">BI & Advanced Analytics</a>
+          <a href="services.html#teradata">Teradata & DW</a>
+          <a href="services.html#devops">DevOps & Automation</a>
+          <a href="services.html#sap">Enterprise Applications (SAP)</a>
+          <hr style="border:0;border-top:1px solid #e1e5f2;margin:6px 0;">
+          <a href="solutions.html">Reference Solutions →</a>
+        </div>
+      </li>
+
+      <li class="dropdown">
+        <a href="industries.html">Industries <span class="caret">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="industries.html#bfs">Banking & Financial Services</a>
+          <a href="industries.html#kpo">KPO & Shared Services</a>
+          <a href="industries.html#audit">Audit & Taxation</a>
+          <a href="industries.html#health">Healthcare & Life Sciences</a>
+          <a href="industries.html#retail">Retail & eCommerce</a>
+          <a href="industries.html#logistics">Logistics</a>
+          <a href="industries.html#manufacturing">Manufacturing</a>
+          <a href="industries.html#pharma">Pharma</a>
+          <a href="industries.html#hospitals">Hospitals</a>
+          <a href="industries.html#hotels">Hotels & Hospitality</a>
+          <a href="industries.html#other">Other Digital Solutions</a>
+        </div>
+      </li>
+
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Theme Switcher (Home only) -->
+  <button class="theme-toggle" id="themeToggle" aria-haspopup="true" aria-expanded="false">🎨 Theme</button>
+  <div class="theme-panel" id="themePanel" role="menu" aria-label="Choose theme">
+    <div class="theme-grid">
+      <button class="theme-pill" data-theme="blue"><span class="theme-dot"></span><span class="theme-name">Blue</span></button>
+      <button class="theme-pill" data-theme="teal"><span class="theme-dot"></span><span class="theme-name">Teal</span></button>
+      <button class="theme-pill" data-theme="violet"><span class="theme-dot"></span><span class="theme-name">Violet</span></button>
+      <button class="theme-pill" data-theme="emerald"><span class="theme-dot"></span><span class="theme-name">Emerald</span></button>
+      <button class="theme-pill" data-theme="sunset"><span class="theme-dot"></span><span class="theme-name">Sunset</span></button>
+      <button class="theme-pill" data-theme="dark"><span class="theme-dot"></span><span class="theme-name">Dark</span></button>
+      <button class="theme-pill" data-theme="contrast"><span class="theme-dot"></span><span class="theme-name">Contrast</span></button>
+    </div>
+  </div>
+</header>
 
   <!-- HERO -->
   <section id="home" class="hero">
