@@ -1,208 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>MYRAS Consulting | Empowering Businesses through Technology, Data & Innovation</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MYRAS Consulting | Empowering Businesses through Technology, Data, and Innovation</title>
 
-  <link rel="icon" href="favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20251118">
-  <script defer src="script.js?v=20251118"></script>
+  <!-- Favicon + Fonts + Versioned CSS/JS -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css?v=7">
+<script defer src="script.js?v=7"></script>
 </head>
+
 <body>
-  <!-- === NAVBAR === -->
-  <header class="navbar">
-    <div class="brand" onclick="location.href='index.html'" style="cursor:pointer">
-      <svg viewBox="0 0 48 48" width="36" height="36" aria-hidden="true">
-        <defs>
-          <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0" stop-color="var(--accent-start)"/>
-            <stop offset="1" stop-color="var(--accent-end)"/>
-          </linearGradient>
-        </defs>
-        <path d="M24 5c1.7 0 3.3.9 4.2 2.4l13.6 23.3c1.9 3.2-.4 7.3-4.2 7.3H10.4c-3.8 0-6.1-4.1-4.2-7.3L19.8 7.4C20.7 5.9 22.3 5 24 5z" fill="url(#g)"/>
-        <path d="M24 16.5c-1 0-1.9.5-2.4 1.4l-8.1 14c-.5.9-.5 2 0 2.9.5.9 1.4 1.4 2.4 1.4h16.2c1 0 1.9-.5 2.4-1.4.5-.9.5-2 0-2.9l-8.1-14c-.5-.9-1.4-1.4-2.4-1.4z" fill="#fff" opacity=".2"/>
-      </svg>
-      <div class="logo">MYRAS</div>
+  <!-- Navbar (multi-page) -->
+<header class="navbar">
+  <div class="brand" onclick="location.href='index.html'" style="cursor:pointer">
+    <svg viewBox="0 0 48 48" aria-hidden="true" width="28" height="28">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="var(--accent-start)"/>
+  <stop offset="1" stop-color="var(--accent-end)"/>
+</linearGradient></defs>
+
+      <path d="M24 5c1.7 0 3.3.9 4.2 2.4l13.6 23.3c1.9 3.2-.4 7.3-4.2 7.3H10.4c-3.8 0-6.1-4.1-4.2-7.3L19.8 7.4C20.7 5.9 22.3 5 24 5z" fill="url(#g)"/>
+      <path d="M24 16.5c-1 0-1.9.5-2.4 1.4l-8.1 14c-.5.9-.5 2 0 2.9.5.9 1.4 1.4 2.4 1.4h16.2c1 0 1.9-.5 2.4-1.4.5-.9.5-2 0-2.9l-8.1-14c-.5-.9-1.4-1.4-2.4-1.4z" fill="#fff" opacity=".25"/>
+    </svg>
+    <div class="logo">MYRAS</div>
+  </div>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+
+      <li class="dropdown">
+        <a href="about.html">About <span class="caret">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="about.html#who">Who We Are</a>
+          <a href="about.html#expertise">Our Expertise</a>
+          <a href="about.html#values">Our Values</a>
+        </div>
+      </li>
+
+      <li class="dropdown">
+        <a href="services.html">Services <span class="caret">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="services.html#consulting">IT Consulting & Staffing</a>
+          <a href="services.html#cloud">Cloud & Data Solutions</a>
+          <a href="services.html#enterprise">Enterprise Support & Automation</a>
+          <a href="services.html#bi">BI & Advanced Analytics</a>
+          <a href="services.html#teradata">Teradata & DW</a>
+          <a href="services.html#devops">DevOps & Automation</a>
+          <a href="services.html#sap">Enterprise Applications (SAP)</a>
+          <hr style="border:0;border-top:1px solid #e1e5f2;margin:6px 0;">
+          <a href="solutions.html">Reference Solutions →</a>
+        </div>
+      </li>
+
+      <li class="dropdown">
+        <a href="industries.html">Industries <span class="caret">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="industries.html#bfs">Banking & Financial Services</a>
+          <a href="industries.html#kpo">KPO & Shared Services</a>
+          <a href="industries.html#audit">Audit & Taxation</a>
+          <a href="industries.html#health">Healthcare & Life Sciences</a>
+          <a href="industries.html#retail">Retail & eCommerce</a>
+          <a href="industries.html#logistics">Logistics</a>
+          <a href="industries.html#manufacturing">Manufacturing</a>
+          <a href="industries.html#pharma">Pharma</a>
+          <a href="industries.html#hospitals">Hospitals</a>
+          <a href="industries.html#hotels">Hotels & Hospitality</a>
+          <a href="industries.html#other">Other Digital Solutions</a>
+        </div>
+      </li>
+
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Theme Switcher (Home only) -->
+  <button class="theme-toggle" id="themeToggle" aria-haspopup="true" aria-expanded="false">🎨 Theme</button>
+  <div class="theme-panel" id="themePanel" role="menu" aria-label="Choose theme">
+    <div class="theme-grid">
+      <button class="theme-pill" data-theme="blue"><span class="theme-dot"></span><span class="theme-name">Blue</span></button>
+      <button class="theme-pill" data-theme="teal"><span class="theme-dot"></span><span class="theme-name">Teal</span></button>
+      <button class="theme-pill" data-theme="violet"><span class="theme-dot"></span><span class="theme-name">Violet</span></button>
+      <button class="theme-pill" data-theme="emerald"><span class="theme-dot"></span><span class="theme-name">Emerald</span></button>
+      <button class="theme-pill" data-theme="sunset"><span class="theme-dot"></span><span class="theme-name">Sunset</span></button>
+      <button class="theme-pill" data-theme="dark"><span class="theme-dot"></span><span class="theme-name">Dark</span></button>
+      <button class="theme-pill" data-theme="contrast"><span class="theme-dot"></span><span class="theme-name">Contrast</span></button>
+    </div>
+  </div>
+</header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Empowering Businesses through Technology, Data, and Innovation</h1>
+      <p>We help enterprises transform ideas into impactful digital solutions through modern IT consulting, data engineering, and cloud excellence.</p>
+      <a href="contact.html" class="cta-button">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- ABOUT (brief teaser on home) -->
+  <section class="about">
+    <h2>About MYRAS</h2>
+    <p>Experienced consultants across IT, Banking, KPO, Auditing, and Taxation. We deliver strategy, architecture, data platforms and operational excellence — aligned to TOGAF, PMBOK and Agile practices.</p>
+    <p><a href="about.html" class="cta-button">Learn More</a></p>
+  </section>
+
+  <!-- PROMO BANNER -->
+  <section class="promo-band">
+    <h2>Consulting Excellence. Delivered.</h2>
+    <p>Empowering enterprises with robust architectures, proven delivery frameworks, and deep domain expertise across industries.</p>
+    <div class="pills">
+      <span class="pill">TOGAF Enterprise Architecture</span>
+      <span class="pill">Agile & Scrum Delivery</span>
+      <span class="pill">PMBOK Project Governance</span>
+      <span class="pill">Cloud Strategy</span>
+    </div>
+  </section>
+
+  <!-- FLYERS CAROUSEL -->
+  <section class="services" id="flyers">
+    <h2>Our Consulting Focus Areas</h2>
+    <p>We bring transformation through a mix of technology, data, and process excellence — turning ideas into scalable, high-impact solutions.</p>
+
+    <!-- Controls -->
+    <div class="carousel-controls">
+      <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
+      <button class="carousel-btn next" aria-label="Next slide">›</button>
     </div>
 
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html#home">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="industries.html">Industries</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <!-- Track -->
+    <div class="carousel-track" data-autoplay="true" data-interval="4200">
+      <article class="flyer slide">
+        <h3>Digital Transformation</h3>
+        <p>Modernize legacy systems and build cloud-native apps with secure, scalable, resilient architectures.</p>
+        <p><strong>Domains:</strong> Microservices · APIs · Containers · Cloud Migration</p>
+      </article>
 
-    <div class="nav-actions">
-      <a class="btn ghost" href="contact.html">Book a Call</a>
-      <button class="menu-toggle" aria-label="Open menu">☰</button>
+      <article class="flyer slide">
+        <h3>Data & AI Consulting</h3>
+        <p>Design end-to-end data ecosystems — from lakes to AI analytics — enabling predictive insights.</p>
+        <p><strong>Tools:</strong> Azure Synapse · AWS Glue · BigQuery · Power BI</p>
+      </article>
+
+      <article class="flyer slide">
+        <h3>IT Service Management (ITSM)</h3>
+        <p>Align IT ops to business outcomes using ITIL & SRE for reliability and continuous improvement.</p>
+        <p><strong>Focus:</strong> Incident · Problem · Change · CMDB · SLAs</p>
+      </article>
+
+      <article class="flyer slide">
+        <h3>Agile Delivery & Governance</h3>
+        <p>Certified Agile PMs ensure sprint velocity, stakeholder alignment, and measurable value.</p>
+        <p><strong>Frameworks:</strong> Scrum · Kanban · SAFe · PMBOK</p>
+      </article>
     </div>
-  </header>
 
-  <!-- === HERO === -->
-  <main>
-    <section id="home" class="hero hero-modern">
-      <div class="container hero-grid">
-        <div class="hero-left">
-          <h1>Technology, Data & Cloud — delivered for measurable business impact</h1>
-          <p class="lead">We design pragmatic architectures, build data platforms, and scale engineering teams so enterprises can move faster and smarter.</p>
+    <!-- Dots -->
+    <div class="carousel-dots" aria-label="Slide indicators"></div>
+  </section>
 
-          <div class="hero-ctas">
-            <a href="contact.html" class="btn primary">Get a Free Consultation</a>
-            <a href="#services" class="btn outline">Our Services</a>
-          </div>
-
-          <div class="trust-row">
-            <span>Trusted by:</span>
-            <div class="logos">
-              <div class="logo-pill">Banking</div>
-              <div class="logo-pill">Healthcare</div>
-              <div class="logo-pill">KPO</div>
-              <div class="logo-pill">Retail</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-right" aria-hidden="true">
-          <svg viewBox="0 0 680 480" class="hero-graphic" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="g1" x1="0" x2="1">
-                <stop offset="0" stop-color="#06b6d4"/>
-                <stop offset="1" stop-color="#7c3aed"/>
-              </linearGradient>
-              <filter id="f1" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="28" result="b"/>
-                <feBlend in="SourceGraphic" in2="b"/>
-              </filter>
-            </defs>
-
-            <g filter="url(#f1)">
-              <circle cx="140" cy="120" r="120" fill="url(#g1)" opacity="0.85"/>
-              <ellipse cx="480" cy="320" rx="180" ry="120" fill="#14b8a6" opacity="0.18"/>
-              <rect x="320" y="40" rx="20" width="240" height="120" fill="#ec4899" opacity="0.12" transform="rotate(-18 440 100)"/>
-            </g>
-
-            <g stroke="#eaf2ff" stroke-opacity="0.08" stroke-width="1.5" fill="none">
-              <path d="M50 420 C150 320 250 380 350 310 C450 240 560 320 640 260"/>
-            </g>
-          </svg>
-        </div>
+  <!-- QUICK PATHS -->
+  <section class="services">
+    <h2>Explore</h2>
+    <div class="service-container">
+      <div class="service-card">
+        <h3>Services</h3>
+        <p>IT Consulting & Staffing, Cloud & Data, Support & Automation, BI & Analytics, Teradata, DevOps.</p>
+        <p><a href="services.html" class="cta-button">View Services</a></p>
       </div>
-    </section>
-
-    <!-- === ABOUT TEASER === -->
-    <section class="about-teaser">
-      <div class="container">
-        <div class="two-col">
-          <div>
-            <h2>What we do</h2>
-            <p>Strategy, architecture, engineering and operations — aligned to TOGAF, PMBOK and Agile delivery. We help businesses move from concept to outcomes with practical, scalable solutions.</p>
-            <p><a href="about.html" class="btn outline">Learn more about MYRAS</a></p>
-          </div>
-
-          <div>
-            <h2>How we help</h2>
-            <ul class="feature-list">
-              <li><strong>Cloud & Data:</strong> Modern data platforms, migrations, governance</li>
-              <li><strong>BI & Analytics:</strong> Dashboards, semantic layers, self-service analytics</li>
-              <li><strong>Staffing & Delivery:</strong> Expert teams that ramp up fast</li>
-            </ul>
-          </div>
-        </div>
+      <div class="service-card">
+        <h3>Reference Solutions</h3>
+        <p>ETL (batch & streaming), on-prem → cloud patterns (AWS/Azure/GCP), reporting & BI flows.</p>
+        <p><a href="solutions.html" class="cta-button">See Solutions</a></p>
       </div>
-    </section>
-
-    <!-- === SERVICES === -->
-    <section id="services" class="services-section">
-      <div class="container">
-        <h2>Our Services</h2>
-        <p class="muted">Focused offerings designed for measurable results</p>
-
-        <div class="service-grid">
-          <article class="service-card">
-            <h3>Data Platforms</h3>
-            <p>Lakehouse, warehouse, ETL/ELT patterns, and governance across AWS/Azure/GCP.</p>
-            <a class="read-more" href="services.html#cloud">Learn more →</a>
-          </article>
-
-          <article class="service-card">
-            <h3>BI & Advanced Analytics</h3>
-            <p>Dashboards, ML prototypes, customer 360 and actionable insights for decision makers.</p>
-            <a class="read-more" href="services.html#bi">Learn more →</a>
-          </article>
-
-          <article class="service-card">
-            <h3>Engineering & Staffing</h3>
-            <p>Teradata, DevOps, Cloud engineers and managed teams to accelerate delivery.</p>
-            <a class="read-more" href="services.html#consulting">Learn more →</a>
-          </article>
-        </div>
+      <div class="service-card">
+        <h3>Industries</h3>
+        <p>BFSI, KPO/Shared Services, Audit & Taxation, Healthcare, Retail & eCommerce.</p>
+        <p><a href="industries.html" class="cta-button">See Industries</a></p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- === CASE STUDIES === -->
-    <section class="case-section">
-      <div class="container">
-        <h2>Selected outcomes</h2>
-        <p class="muted">Short case highlights showing impact</p>
+  <!-- VISION BAND -->
+  <section class="promo-band" style="margin-bottom:0;">
+    <h2>Our Vision</h2>
+    <p>To enable businesses to thrive in a data-driven world — where technology, creativity, and strategy converge to deliver measurable growth.</p>
+    <div class="pills">
+      <span class="pill">Innovation</span>
+      <span class="pill">Integrity</span>
+      <span class="pill">Impact</span>
+    </div>
+  </section>
 
-        <div class="case-grid">
-          <div class="case-card">
-            <h4>Migration to Cloud</h4>
-            <p>Reduced infra costs by 32% while improving recovery and observability.</p>
-          </div>
-          <div class="case-card">
-            <h4>Customer 360</h4>
-            <p>Unified data for personalised campaigns — increased conversion by 27%.</p>
-          </div>
-          <div class="case-card">
-            <h4>Production Stability</h4>
-            <p>Improved incident MTTR by 45% through better processes & monitoring.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- === CTA BAND === -->
-    <section class="cta-band">
-      <div class="container cta-inner">
-        <h3>Ready to accelerate your data & cloud journey?</h3>
-        <div>
-          <a href="contact.html" class="btn primary">Schedule a free consult</a>
-          <a href="contact.html" class="btn ghost">Email us</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- === FOOTER === -->
+  <!-- FOOTER -->
   <footer>
-    <div class="container footer-grid">
-      <div>
-        <strong>MYRAS Consulting</strong>
-        <p class="muted">Empowering businesses through technology, data, and innovation.</p>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <p class="muted">hello@myras.co.in<br/>Chennai, India</p>
-      </div>
-      <div>
-        <h4>Quick links</h4>
-        <p class="muted">
-          <a href="about.html">About</a> · 
-          <a href="services.html">Services</a> · 
-          <a href="contact.html">Contact</a>
-        </p>
-      </div>
-    </div>
-    <div class="copyright">
-      © MYRAS Consulting · 2025
-    </div>
+    <p>© 2025 MYRAS Consulting — build v3</p>
   </footer>
-
 </body>
 </html>
